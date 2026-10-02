@@ -16,6 +16,12 @@ npm run build      # üretim derlemesi
 2. **Deploy**'a basın.
 3. **Settings → Domains** bölümünden `tatpastanesi.com` ve `www.tatpastanesi.com` ekleyin, Vercel'in verdiği DNS kayıtlarını alan adı sağlayıcınıza girin
    (`www` asıl adres, kök alan adı `www`'ye yönlensin — site haritası ve canonical adresler `https://www.tatpastanesi.com` üzerine kurulu).
+4. QR menü için aynı projeye `menu.tatpastanesi.com` alan adını da ekleyin (DNS: `menu` için Vercel'in verdiği CNAME).
+   Bu adres doğrudan `/menu/` sayfasını açar; eski QR kodların adresleri (`menu.php`, `category.php` vb.) menüye yönlendirilir.
+   Ayar `next.config.ts` içindeki `MENU_HOST` değişkenindedir.
+
+> Not: Vercel'in ücretsiz **Hobby** planı yalnızca kişisel, ticari olmayan kullanım içindir. İşletme sitesi için **Pro** plan gerekir
+> (https://vercel.com/docs/limits/fair-use-guidelines#commercial-usage).
 
 ## Yönetim paneli
 

@@ -6,6 +6,9 @@ import type { NextConfig } from "next";
 const isPages = process.env.GITHUB_PAGES === "true";
 const basePath = isPages && !process.env.CUSTOM_DOMAIN ? "/tatpastanesi" : "";
 
+// QR menünün alt alan adı (Vercel'de alan adı bağlandığında geçerli olur)
+const MENU_HOST = "menu.tatpastanesi.com";
+
 const nextConfig: NextConfig = {
   // Eski sitedeki URL'ler (/urunlerimiz/ vb.) aynen korunur; arama motoru sıralaması kaybolmaz.
   trailingSlash: true,
@@ -28,9 +31,27 @@ const nextConfig: NextConfig = {
         },
         // Yönetim paneli (public/admin/index.html)
         async rewrites() {
+          return {
+            beforeFiles: [
+              // menu.tatpastanesi.com → doğrudan QR menü (adres çubuğunda alt alan adı kalır)
+              { source: "/", has: [{ type: "host", value: MENU_HOST }], destination: "/menu/" },
+            ],
+            afterFiles: [
+              { source: "/admin", destination: "/admin/index.html" },
+              { source: "/admin/", destination: "/admin/index.html" },
+            ],
+            fallback: [],
+          };
+        },
+        async redirects() {
           return [
-            { source: "/admin", destination: "/admin/index.html" },
-            { source: "/admin/", destination: "/admin/index.html" },
+            // Eski QR menünün adresleri (basılı QR kodlar çalışmaya devam etsin)
+            ...["/index.php", "/menu.php", "/category.php", "/product.php"].map((source) => ({
+              source,
+              has: [{ type: "host" as const, value: MENU_HOST }],
+              destination: "/",
+              permanent: true,
+            })),
           ];
         },
         async headers() {

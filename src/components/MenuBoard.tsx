@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { ALLERGENS, MENU, formatPrice, type Lang, type MenuCategory, type MenuItem } from "@/data/menu";
-import { BRANCHES, FLAVORS, INSTAGRAM_URL, SETTINGS, whatsappLink } from "@/data/site";
+import { BRANCHES, FLAVORS, INSTAGRAM_URL, SETTINGS, SITE, whatsappLink } from "@/data/site";
 import HeroMedia from "./HeroMedia";
 import { ArrowIcon, CloseIcon, InstagramIcon, PhoneIcon, SearchIcon, StarIcon, WhatsAppIcon } from "./Icons";
 import OpenStatus from "./OpenStatus";
@@ -698,9 +698,9 @@ function MenuFooter({ lang }: { lang: Lang }) {
         <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2.5">
           <InstagramIcon width={16} height={16} /> @{SETTINGS.instagram}
         </a>
-        <Link href="/" className="flex items-center gap-2 rounded-full px-4 py-2.5 ring-1 ring-white/20">
+        <a href={SITE.url} className="flex items-center gap-2 rounded-full px-4 py-2.5 ring-1 ring-white/20">
           {t.site} <ArrowIcon width={16} height={16} />
-        </Link>
+        </a>
       </div>
     </footer>
   );
