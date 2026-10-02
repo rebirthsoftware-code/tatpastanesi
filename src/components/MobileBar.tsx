@@ -14,9 +14,9 @@ export default function MobileBar() {
         <Link href="/subelerimiz/" className={item}>
           <PinIcon width={18} height={18} /> Şubeler
         </Link>
-        <a href={SITE.menuUrl} target="_blank" rel="noopener" className={`${item} rounded-xl bg-brand`}>
+        <Link href="/menu/" className={`${item} rounded-xl bg-brand`}>
           <MenuBookIcon width={18} height={18} /> Menü
-        </a>
+        </Link>
       </div>
     </div>
   );

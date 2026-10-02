@@ -14,9 +14,9 @@ export default function Footer() {
               {SITE.founded}&apos;den beri Ankara&apos;nın tatlı anlarına eşlik ediyoruz.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href={SITE.menuUrl} target="_blank" rel="noopener" className="btn btn-gold">
+              <Link href="/menu/" className="btn btn-gold">
                 <MenuBookIcon width={18} height={18} /> Dijital Menü
-              </a>
+              </Link>
               <Link href="/ozel-siparis/" className="btn btn-ghost text-cream">
                 Pasta Siparişi
               </Link>

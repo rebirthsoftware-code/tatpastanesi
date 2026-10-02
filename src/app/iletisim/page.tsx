@@ -28,9 +28,9 @@ export default function ContactPage() {
           <Link href="/ozel-siparis/" className="btn btn-gold">
             Pasta Siparişi Ver <ArrowIcon width={18} height={18} />
           </Link>
-          <a href={SITE.menuUrl} target="_blank" rel="noopener" className="btn btn-ghost text-cream">
+          <Link href="/menu/" className="btn btn-ghost text-cream">
             Dijital Menü
-          </a>
+          </Link>
         </div>
       </PageHero>
 

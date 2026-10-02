@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { findMenuItem, formatPrice } from "@/data/menu";
 import { CATEGORIES, SITE, type Product } from "@/data/site";
 import { ArrowIcon, CloseIcon, MenuBookIcon, SearchIcon } from "./Icons";
 
@@ -107,9 +108,9 @@ export default function ProductCatalog() {
           <div className="rounded-3xl bg-cream-2 p-12 text-center">
             <p className="font-display text-2xl">“{query}” için sonuç bulunamadı.</p>
             <p className="mt-2 text-muted">Tüm çeşitlerimiz ve güncel fiyatlar için dijital menümüze göz atın.</p>
-            <a href={SITE.menuUrl} target="_blank" rel="noopener" className="btn btn-primary mt-6">
+            <Link href="/menu/" className="btn btn-primary mt-6">
               <MenuBookIcon width={18} height={18} /> Dijital Menü
-            </a>
+            </Link>
           </div>
         )}
 
@@ -181,9 +182,9 @@ export default function ProductCatalog() {
               <h2 className="mt-4 font-display text-4xl font-medium md:text-5xl">Tüm menü ve fiyatlar dijital menümüzde.</h2>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">
-              <a href={SITE.menuUrl} target="_blank" rel="noopener" className="btn btn-gold">
+              <Link href="/menu/" className="btn btn-gold">
                 <MenuBookIcon width={18} height={18} /> Menüyü Aç
-              </a>
+              </Link>
               <Link href="/ozel-siparis/" className="btn btn-ghost text-cream">
                 Pasta Siparişi
               </Link>
@@ -233,13 +234,21 @@ export default function ProductCatalog() {
                 </button>
               </div>
               <h3 className="mt-3 font-display text-4xl font-medium leading-tight">{selected.name}</h3>
+              {findMenuItem(selected.menuId) && (
+                <p className="mt-2 flex flex-wrap items-baseline gap-x-2 font-display text-2xl tabular-nums text-brand">
+                  {formatPrice(findMenuItem(selected.menuId)!.price)}
+                  {findMenuItem(selected.menuId)!.name.tr !== selected.name && (
+                    <span className="font-sans text-sm text-muted">· {findMenuItem(selected.menuId)!.name.tr}</span>
+                  )}
+                </p>
+              )}
               <p className="mt-4 flex-1 leading-relaxed text-muted">
                 {selected.note ?? "Günlük taze üretilir, tüm şubelerimizin vitrininde sizi bekler. Stok durumu için şubemizi arayabilirsiniz."}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={SITE.menuUrl} target="_blank" rel="noopener" className="btn btn-primary">
-                  Fiyatı Gör
-                </a>
+                <Link href="/menu/" className="btn btn-primary">
+                  Tüm Menü
+                </Link>
                 <Link href="/subelerimiz/" className="btn btn-ghost">
                   En yakın şube
                 </Link>

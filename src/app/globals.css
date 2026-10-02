@@ -211,3 +211,25 @@
 .catalog-bar { transition: top 0.5s ease; }
 [data-header-hidden] .catalog-bar { top: 0; }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ───── Mobil menü: butonun bulunduğu köşeden dairesel açılış ───── */
+.mobile-menu {
+  clip-path: circle(0px at calc(100% - 2.75rem) 2.75rem);
+  visibility: hidden;
+  transition: clip-path 0.7s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s linear 0.7s;
+}
+.mobile-menu[data-open="true"] {
+  clip-path: circle(150% at calc(100% - 2.75rem) 2.75rem);
+  visibility: visible;
+  transition: clip-path 0.8s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s;
+}
+.mobile-menu .menu-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.mobile-menu[data-open="true"] .menu-item {
+  opacity: 1;
+  transform: none;
+  transition-delay: var(--d, 0ms);
+}

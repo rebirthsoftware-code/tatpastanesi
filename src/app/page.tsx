@@ -176,7 +176,7 @@ export default function Home() {
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <Reveal className="relative">
             <div className="relative mx-auto aspect-square max-w-lg overflow-hidden rounded-full ring-[14px] ring-cream">
-              <Image src="/images/products/rumc.jpg" alt="Tat Pastanesi Rumeli Çileklisi" fill sizes="(min-width:1024px) 40vw, 90vw" className="object-cover" />
+              <Image src="/images/menu/16.jpg" alt="Tat Pastanesi Rumeli Çileklisi" fill sizes="(min-width:1024px) 40vw, 90vw" className="object-cover" />
             </div>
             <div className="absolute -bottom-2 right-0 max-w-[16rem] rounded-2xl bg-cocoa p-5 text-cream shadow-xl md:right-6">
               <div className="flex gap-0.5 text-gold-light">
