@@ -9,7 +9,6 @@ import { BRANCHES, FLAVORS, INSTAGRAM_URL, SETTINGS, SITE, whatsappLink } from "
 import HeroMedia from "./HeroMedia";
 import { ArrowIcon, CloseIcon, InstagramIcon, PhoneIcon, SearchIcon, StarIcon, WhatsAppIcon } from "./Icons";
 import OpenStatus from "./OpenStatus";
-import { StoryHighlights } from "./Stories";
 
 const T = {
   tr: {
@@ -299,10 +298,7 @@ export default function MenuBoard() {
       {screen.name === "categories" && (
         <>
           <TopBar title={t.menu} back={{ name: "welcome" }} />
-          <div className="container-x pb-10 pt-5">
-            <div className="rise -mx-5 mb-6 border-b border-ink/10 pb-5" style={stagger(0)}>
-              <StoryHighlights className="px-5" />
-            </div>
+          <div className="container-x pb-10 pt-8">
             <p className="rise eyebrow" style={stagger(0)}>
               {t.categories}
             </p>

@@ -174,33 +174,6 @@ singletons:
             label: Renk (külah ve menüdeki nokta)
             widget: color
             default: '#f6eedc'
-  - name: stories
-    label: Öne Çıkanlar (Hikâyeler)
-    file: content/stories.json
-    fields:
-      - name: groups
-        label: Gruplar
-        widget: list
-        summary: '{{title}}'
-        hint: >-
-          Instagram'daki öne çıkanlar gibi: her grup bir yuvarlak, içindeki afişler sırayla 5'er saniye gösterilir. Sürükleyerek
-          sıralayabilirsiniz.
-        fields:
-          - name: title
-            label: Grup adı (yuvarlağın altındaki yazı)
-            widget: string
-          - name: cover
-            label: Yuvarlak kapak fotoğrafı
-            widget: image
-          - name: slides
-            label: Afişler
-            label_singular: Afiş
-            widget: list
-            summary: '{{image}}'
-            fields:
-              - name: image
-                label: Afiş (dikey 9:16 veya 4:5 önerilir)
-                widget: image
   - name: branches
     label: Şubeler
     file: content/branches.json

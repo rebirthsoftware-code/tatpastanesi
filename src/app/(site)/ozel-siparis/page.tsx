@@ -15,7 +15,7 @@ const GALLERY = [
   ["/images/robloxp.jpg", "Roblox temalı doğum günü pastası"],
   ["/images/products/sippas.jpg", "Çiçekli katlı tasarım pasta"],
   ["/images/products/sekerpas.jpg", "Şeker hamurlu pasta"],
-  ["/images/products/lotusch.jpg", "Lotuslu günlük pasta"],
+  ["/images/covers/pembe-pasta.jpg", "Pembe çikolatalı, frambuazlı pasta"],
 ];
 
 const FAQ = [

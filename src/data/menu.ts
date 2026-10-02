@@ -26,7 +26,7 @@ const CATEGORY_DEFS: Omit<MenuCategory, "items">[] = [
   { slug: "sutlu-tatlilar", name: { tr: "Sütlü Tatlılar", en: "Milk Desserts" }, cover: "/images/menu/16.jpg" },
   { slug: "serbetli-tatlilar", name: { tr: "Şerbetli Tatlılar", en: "Syrup Desserts" }, cover: "/images/products/baklava.jpg" },
   { slug: "kuru-pasta", name: { tr: "Kuru Pasta", en: "Cookies" }, cover: "/images/menu/23.jpg" },
-  { slug: "waffle", name: { tr: "Waffle", en: "Waffle" }, cover: "/images/menu/25.jpg" },
+  { slug: "waffle", name: { tr: "Waffle", en: "Waffle" }, cover: "/images/covers/waffle-tabak.jpg" },
   { slug: "icecekler", name: { tr: "İçecekler", en: "Beverages" }, cover: "/images/menu/26.jpg" },
 ];
 

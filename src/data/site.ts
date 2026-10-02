@@ -53,10 +53,6 @@ export const BRANCHES: Branch[] = content.branches.map((b) => ({
 
 /** Site ayarları (Instagram, giriş videosu vb.) yönetim panelinden düzenlenir. */
 export const SETTINGS = content.settings;
-/** Instagram tarzı "öne çıkanlar": yönetim panelinden (content/stories.json) düzenlenir. */
-export type StoryGroup = { title: string; cover: string; slides: { image: string }[] };
-export const STORIES: StoryGroup[] = content.stories;
-
 export const INSTAGRAM_URL = `https://www.instagram.com/${SETTINGS.instagram}/`;
 
 export const mapsLink = (b: Branch) =>
@@ -84,7 +80,7 @@ const CATEGORY_LIST: Category[] = [
     tagline: "Onlarca çeşit, %100 doğal",
     description:
       "Taze meyve ve gerçek malzemelerle her gün üretilen imza dondurmalarımız; külah, kâğıt helva, cup ve paket seçenekleriyle.",
-    cover: "/images/neden3.jpg",
+    cover: "/images/covers/dondurma-vitrini.jpg",
     items: [
       {
         name: "Tat Dondurma",
@@ -110,7 +106,7 @@ const CATEGORY_LIST: Category[] = [
     tagline: "Günlük ve tasarım",
     description:
       "Vitrinimizde her gün taze hazırlanan pastalar ve hayalinizdeki modele göre yapılan kişiye özel tasarım pastalar.",
-    cover: "/images/robloxp.jpg",
+    cover: "/images/covers/pasta-vitrini.jpg",
     items: [
       {
         name: "Günlük Pasta",
@@ -227,7 +223,7 @@ const CATEGORY_LIST: Category[] = [
     name: "Waffle",
     tagline: "Sıcak, taze, sizin seçiminiz",
     description: "Anında pişen waffle; dilediğiniz meyve, sos ve süslemelerle.",
-    cover: "/images/menu/25.jpg",
+    cover: "/images/covers/waffle-genis.jpg",
     items: [
       {
         name: "Waffle",

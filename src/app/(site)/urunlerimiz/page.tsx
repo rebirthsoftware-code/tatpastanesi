@@ -35,7 +35,7 @@ export default function ProductsPage() {
           </>
         }
         lead="Doğal malzemelerle, ustalarımızın ellerinden çıkan lezzetler. Her gün taze, her gün aynı özenle."
-        image="/images/products/kurupass.jpg"
+        image="/images/covers/pasta-vitrini.jpg"
       />
       <ProductCatalog />
       <JsonLd data={menuJsonLd} />
