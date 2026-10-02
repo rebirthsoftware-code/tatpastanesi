@@ -38,7 +38,6 @@ export const metadata: Metadata = {
     images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Tat Pastanesi lezzetleri" }],
   },
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/icon.png", apple: "/apple-icon.png" },
   formatDetection: { telephone: false },
 };
 
