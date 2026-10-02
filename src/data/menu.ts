@@ -2,10 +2,14 @@
 import content from "./generated/content.json";
 
 export type Lang = "tr" | "en";
+export type MenuVariant = { key: string; label: Record<Lang, string>; price: number };
 export type MenuItem = {
   key: string;
+  keys: string[]; // birleştirilen seçeneklerin dosya adları
+  variants: MenuVariant[]; // Porsiyon / Kg gibi seçenekler (yoksa boş)
+  blur: string; // fotoğraf yüklenirken gösterilen küçük önizleme
   category: string;
-  price: number; // TL
+  price: number; // TL (seçenekli ürünlerde en düşük fiyat)
   name: Record<Lang, string>;
   desc: Record<Lang, string>;
   ingredients: Record<Lang, string>;
@@ -54,4 +58,12 @@ export const ALLERGENS: Record<string, Record<Lang, string>> = {
 export const formatPrice = (p: number, lang: Lang = "tr") =>
   lang === "tr" ? `${p.toLocaleString("tr-TR")} ₺` : `₺${p.toLocaleString("en-US")}`;
 
-export const findMenuItem = (key?: string) => (key ? ITEMS.find((i) => i.key === key) : undefined);
+export const findMenuItem = (key?: string) => (key ? ITEMS.find((i) => i.keys.includes(key)) : undefined);
+
+/** Ürünlerimiz sayfası için: dosya adına karşılık gelen fiyat ve (varsa) seçenek adı. */
+export function menuPrice(key?: string) {
+  const item = findMenuItem(key);
+  if (!item) return undefined;
+  const v = item.variants.find((x) => x.key === key);
+  return { price: v?.price ?? item.price, label: v?.label.tr ?? "", name: item.name.tr };
+}

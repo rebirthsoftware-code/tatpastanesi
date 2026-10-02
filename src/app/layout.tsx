@@ -1,10 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope } from "next/font/google";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
-import MobileBar from "@/components/MobileBar";
-import WhatsAppFab from "@/components/WhatsAppFab";
 import { BRANCHES, INSTAGRAM_URL, SITE } from "@/data/site";
 import "./globals.css";
 
@@ -78,14 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <a href="#icerik" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-cream focus:px-4 focus:py-2 focus:text-ink">
-          İçeriğe geç
-        </a>
-        <Header />
-        <main id="icerik">{children}</main>
-        <Footer />
-        <MobileBar />
-        <WhatsAppFab />
+        {children}
         <JsonLd data={orgJsonLd} />
       </body>
     </html>

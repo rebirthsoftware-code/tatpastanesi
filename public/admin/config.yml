@@ -50,6 +50,7 @@ collections:
       - name: name_tr
         label: Ürün adı (Türkçe)
         widget: string
+        hint: 'Aynı ürünün seçenekleri için adın sonuna parantez ekleyin: "Trileçe (Porsiyon)" ve "Trileçe (Kg)" menüde tek üründe iki fiyat olarak görünür.'
       - name: name_en
         label: Ürün adı (İngilizce)
         widget: string

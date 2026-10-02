@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { findMenuItem, formatPrice } from "@/data/menu";
+import { formatPrice, menuPrice } from "@/data/menu";
 import { CATEGORIES, SITE, type Product } from "@/data/site";
 import { ArrowIcon, CloseIcon, MenuBookIcon, SearchIcon } from "./Icons";
 
@@ -236,11 +236,12 @@ export default function ProductCatalog() {
                 </button>
               </div>
               <h3 className="mt-3 font-display text-4xl font-medium leading-tight">{selected.name}</h3>
-              {findMenuItem(selected.menuKey) && (
+              {menuPrice(selected.menuKey) && (
                 <p className="mt-2 flex flex-wrap items-baseline gap-x-2 font-display text-2xl tabular-nums text-brand">
-                  {formatPrice(findMenuItem(selected.menuKey)!.price)}
-                  {findMenuItem(selected.menuKey)!.name.tr !== selected.name && (
-                    <span className="font-sans text-sm text-muted">· {findMenuItem(selected.menuKey)!.name.tr}</span>
+                  {formatPrice(menuPrice(selected.menuKey)!.price)}
+                  {menuPrice(selected.menuKey)!.label && <span className="font-sans text-sm text-muted">· {menuPrice(selected.menuKey)!.label}</span>}
+                  {menuPrice(selected.menuKey)!.name !== selected.name && (
+                    <span className="font-sans text-sm text-muted">· {menuPrice(selected.menuKey)!.name}</span>
                   )}
                 </p>
               )}
