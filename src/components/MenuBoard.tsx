@@ -305,35 +305,33 @@ export default function MenuBoard() {
             <h1 className="rise mt-3 font-display text-4xl font-medium md:text-5xl" style={stagger(1)}>
               {t.pick}
             </h1>
-            <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-8 grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
               {MENU.map((c, i) => (
                 <li key={c.slug} className="rise" style={stagger(i + 2)}>
                   <button
                     type="button"
                     onClick={() => go({ name: "category", slug: c.slug })}
-                    className="group relative block aspect-[16/10] w-full overflow-hidden rounded-[2rem] bg-cocoa text-left text-cream shadow-[0_24px_50px_-28px_rgba(28,18,14,0.6)] md:aspect-[4/3]"
+                    className="group relative block aspect-[4/5] w-full overflow-hidden rounded-3xl bg-cocoa text-left text-cream shadow-[0_24px_50px_-28px_rgba(28,18,14,0.6)] md:aspect-[4/3] md:rounded-[2rem]"
                   >
                     <Image
                       src={c.cover}
                       alt=""
                       fill
                       priority={i < 2}
-                      sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                      sizes="(min-width:1024px) 33vw, 50vw"
                       className="object-cover transition duration-700 group-hover:scale-105 group-active:scale-105"
                       style={{ viewTransitionName: `cat-${c.slug}` }}
                     />
                     <span className="absolute inset-0 bg-gradient-to-t from-cocoa/90 via-cocoa/20 to-transparent" />
-                    <span className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4">
-                      <span>
-                        <span className="block font-display text-4xl leading-none" style={{ viewTransitionName: `cat-title-${c.slug}` }}>
-                          {c.name[lang]}
-                        </span>
-                        <span className="mt-2 block text-sm font-semibold text-cream/75">
-                          {c.items.length} {t.items}
-                        </span>
+                    <span className="absolute right-3 top-3 grid size-9 place-items-center rounded-full bg-cream/95 text-ink shadow transition group-hover:bg-gold md:right-5 md:top-5 md:size-11">
+                      <ArrowIcon width={16} height={16} />
+                    </span>
+                    <span className="absolute inset-x-3.5 bottom-3.5 md:inset-x-5 md:bottom-5">
+                      <span className="block font-display text-[1.6rem] leading-[1.05] md:text-4xl" style={{ viewTransitionName: `cat-title-${c.slug}` }}>
+                        {c.name[lang]}
                       </span>
-                      <span className="grid size-12 shrink-0 place-items-center rounded-full bg-cream text-ink transition group-hover:bg-gold">
-                        <ArrowIcon width={20} height={20} />
+                      <span className="mt-1.5 block text-xs font-semibold text-cream/75 md:text-sm">
+                        {c.items.length} {t.items}
                       </span>
                     </span>
                   </button>
@@ -365,7 +363,7 @@ export default function MenuBoard() {
           <CategorySwitcher current={category.slug} lang={lang} onPick={(slug) => go({ name: "category", slug })} />
 
           <div className="container-x pb-10 pt-6">
-            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
               {category.items.map((item, i) => (
                 <li key={item.key} className="rise" style={stagger(i)}>
                   <ProductCard item={item} lang={lang} badge={t.bestBadge} onOpen={() => open(item, category.items)} priority={i < 2} />
@@ -570,35 +568,44 @@ export default function MenuBoard() {
 /** Büyük fotoğraflı ürün kartı */
 function ProductCard({ item, lang, badge, onOpen, priority }: { item: MenuItem; lang: Lang; badge: string; onOpen: () => void; priority: boolean }) {
   return (
-    <button type="button" onClick={onOpen} className="group block w-full overflow-hidden rounded-[2rem] bg-cream text-left shadow-[0_20px_45px_-30px_rgba(28,18,14,0.55)] ring-1 ring-ink/5">
-      <span className="relative block aspect-[4/3] overflow-hidden bg-cream-2">
+    <button
+      type="button"
+      onClick={onOpen}
+      className="group flex h-full w-full flex-col overflow-hidden rounded-3xl bg-cream text-left shadow-[0_18px_40px_-28px_rgba(28,18,14,0.55)] ring-1 ring-ink/5"
+    >
+      <span className="relative block aspect-square overflow-hidden bg-cream-2">
         <Image
           src={item.image}
           alt={item.name[lang]}
           fill
           priority={priority}
-          sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+          sizes="(min-width:1024px) 25vw, 50vw"
           placeholder={item.blur ? "blur" : "empty"}
           blurDataURL={item.blur || undefined}
           className="object-cover transition duration-700 group-hover:scale-105 group-active:scale-[1.03]"
         />
         {item.featured && (
-          <span className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-cream/95 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-brand shadow">
-            <StarIcon width={11} height={11} /> {badge}
+          <span className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-cream/95 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-brand shadow md:text-[11px]">
+            <StarIcon width={9} height={9} /> {badge}
           </span>
         )}
         {!item.variants.length && (
-          <span className="absolute bottom-3 right-3 rounded-full bg-cream px-3.5 py-1.5 font-display text-lg font-semibold tabular-nums text-brand shadow-lg">
+          <span className="absolute bottom-2 right-2 rounded-full bg-cream px-2.5 py-1 font-display text-sm font-semibold tabular-nums text-brand shadow-lg md:text-lg">
             {formatPrice(item.price, lang)}
           </span>
         )}
       </span>
-      <span className="block p-5">
-        <span className="block font-display text-2xl font-semibold leading-tight">{item.name[lang]}</span>
-        {item.desc[lang] && <span className="mt-1.5 line-clamp-2 block leading-snug text-muted">{item.desc[lang]}</span>}
+      <span className="flex flex-1 flex-col p-3 md:p-4">
+        <span className="block font-display text-[1.05rem] font-semibold leading-tight md:text-xl">{item.name[lang]}</span>
+        {item.desc[lang] && <span className="mt-1 line-clamp-2 block text-xs leading-snug text-muted md:text-sm">{item.desc[lang]}</span>}
         {item.variants.length > 0 && (
-          <span className="mt-3 block">
-            <PriceLine item={item} lang={lang} />
+          <span className="mt-auto space-y-0.5 pt-2">
+            {item.variants.map((v) => (
+              <span key={v.key} className="flex items-baseline justify-between gap-2 text-xs">
+                <span className="text-muted">{v.label[lang]}</span>
+                <span className="font-display text-sm font-semibold tabular-nums text-brand md:text-base">{formatPrice(v.price, lang)}</span>
+              </span>
+            ))}
           </span>
         )}
       </span>
