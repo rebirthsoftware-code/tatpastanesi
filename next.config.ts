@@ -13,7 +13,12 @@ const nextConfig: NextConfig = {
     ? {
         output: "export",
         basePath,
-        images: { loader: "custom", loaderFile: "./src/lib/pages-image-loader.ts" },
+        images: {
+          loader: "custom",
+          loaderFile: "./src/lib/pages-image-loader.ts",
+          deviceSizes: [640, 960, 1600],
+          imageSizes: [160, 384],
+        },
       }
     : {
         images: {

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "build:pages": "node scripts/pages-image-variants.mjs && GITHUB_PAGES=true next build"
   },
   "dependencies": {
     "next": "^16.3.8",

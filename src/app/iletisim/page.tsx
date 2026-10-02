@@ -64,7 +64,7 @@ export default function ContactPage() {
               </div>
             </Reveal>
           ))}
-          <Reveal delay={160} className="on-dark grain relative flex flex-col justify-between overflow-hidden rounded-[2rem] bg-brand p-8 text-cream">
+          <Reveal delay={160} className="on-dark relative flex flex-col justify-between overflow-hidden rounded-[2rem] bg-brand p-8 text-cream">
             <div>
               <p className="eyebrow">Çalışma saatleri</p>
               <p className="mt-4 font-display text-5xl">09:00 – 00:00</p>

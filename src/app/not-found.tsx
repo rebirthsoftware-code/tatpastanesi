@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="on-dark grain relative grid min-h-[80svh] place-items-center overflow-hidden bg-cocoa px-5 pt-32 text-center text-cream">
+    <section className="on-dark relative grid min-h-[80svh] place-items-center overflow-hidden bg-cocoa px-5 pt-32 text-center text-cream">
       <div>
         <p className="font-display text-[8rem] leading-none text-gold-light/80 md:text-[12rem]">404</p>
         <h1 className="mt-4 font-display text-4xl md:text-5xl">Bu dilim tükenmiş gibi görünüyor.</h1>

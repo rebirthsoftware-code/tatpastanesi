@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BRANCHES } from "@/data/site";
-import { PhoneIcon } from "./Icons";
+import { BRANCHES, whatsappLink } from "@/data/site";
+import { PhoneIcon, WhatsAppIcon } from "./Icons";
 
 /** Hangi şubenin aranacağını seçtiren açılır menü. */
 export default function CallMenu({
@@ -11,7 +11,11 @@ export default function CallMenu({
   placement = "bottom",
   align = "right",
   wrapperClassName = "",
+  kind = "tel",
+  ariaLabel,
 }: {
+  kind?: "tel" | "whatsapp";
+  ariaLabel?: string;
   className?: string;
   label?: string;
   placement?: "bottom" | "top";
@@ -37,9 +41,9 @@ export default function CallMenu({
 
   return (
     <div ref={ref} className={`relative ${wrapperClassName}`}>
-      <button type="button" aria-expanded={open} aria-haspopup="menu" onClick={() => setOpen((o) => !o)} className={className}>
-        <PhoneIcon width={18} height={18} />
-        <span>{label}</span>
+      <button type="button" aria-expanded={open} aria-haspopup="menu" aria-label={ariaLabel} onClick={() => setOpen((o) => !o)} className={className}>
+        {kind === "whatsapp" ? <WhatsAppIcon width={label ? 18 : 26} height={label ? 18 : 26} /> : <PhoneIcon width={18} height={18} />}
+        {label && <span>{label}</span>}
       </button>
       {open && (
         <div
@@ -48,12 +52,13 @@ export default function CallMenu({
             placement === "top" ? "bottom-full mb-3" : "top-full mt-3"
           }`}
         >
-          <p className="border-b border-ink/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-muted">Şube seçin</p>
+          <p className="border-b border-ink/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-muted">{kind === "whatsapp" ? "WhatsApp – şube seçin" : "Şube seçin"}</p>
           {BRANCHES.map((b) => (
             <a
               key={b.slug}
               role="menuitem"
-              href={`tel:${b.phone}`}
+              href={kind === "whatsapp" ? whatsappLink(b) : `tel:${b.phone}`}
+              {...(kind === "whatsapp" ? { target: "_blank", rel: "noopener" } : {})}
               className="flex items-center justify-between gap-3 px-4 py-3 text-sm transition hover:bg-cream-2"
               onClick={() => setOpen(false)}
             >

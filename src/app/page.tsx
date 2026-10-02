@@ -3,10 +3,14 @@ import Link from "next/link";
 import Counter from "@/components/Counter";
 import { ArrowIcon, HandIcon, HeritageIcon, LeafIcon, PinIcon, SparkIcon, StarIcon } from "@/components/Icons";
 import OpenStatus from "@/components/OpenStatus";
+import IntroCurtain from "@/components/IntroCurtain";
 import Reveal from "@/components/Reveal";
+import SplitText from "@/components/SplitText";
 import { BRANCHES, CATEGORIES, REVIEWS, SITE, STATS, mapsLink } from "@/data/site";
 
 export const metadata = { alternates: { canonical: "/" } };
+
+const HERO_SLIDES = ["/images/neden3.jpg", "/images/products/baklava.jpg", "/images/products/kurupass.jpg", "/images/products/sippas.jpg"];
 
 const MARQUEE = ["%100 Doğal Malzeme", "Günlük Üretim", "El Yapımı", "Tasarım Pastalar", "Katkısız Dondurma", "2001'den Beri"];
 
@@ -41,81 +45,67 @@ export default function Home() {
   return (
     <>
       {/* ───────────── HERO ───────────── */}
-      <section className="on-dark grain relative isolate overflow-hidden bg-cocoa text-cream">
-        <div className="pointer-events-none absolute -left-40 top-20 -z-10 size-[560px] rounded-full bg-brand/35 blur-[140px]" />
-        <div className="pointer-events-none absolute -right-20 bottom-0 -z-10 size-[420px] rounded-full bg-gold/15 blur-[120px]" />
-
-        <div className="container-x grid min-h-[100svh] items-center gap-12 pb-20 pt-36 lg:grid-cols-[1.05fr_1fr] lg:pt-32">
-          <div>
-            <p className="eyebrow">Ankara · {SITE.founded}&apos;den beri</p>
-            <h1 className="mt-6 font-display text-[3.4rem] font-medium leading-[0.95] sm:text-7xl xl:text-[6.5rem]">
-              Ustalıkla
-              <br />
-              yapılan <em className="font-light text-gold-light">tatlı</em>
-              <br />
-              sanatı.
-            </h1>
-            <p className="mt-8 max-w-lg text-lg leading-relaxed text-cream/75">
-              Günlük taze yaş pastalar, sütlü ve şerbetli tatlılar ve %100 doğal dondurma. Geleneksel lezzetleri, modern dokunuşlarla
-              beş şubemizde sizin için hazırlıyoruz.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/urunlerimiz/" className="btn btn-primary">
-                Lezzetleri Keşfet <ArrowIcon width={18} height={18} />
-              </Link>
-              <Link href="/ozel-siparis/" className="btn btn-ghost text-cream">
-                Pasta Siparişi Ver
-              </Link>
+      <IntroCurtain />
+      <section className="on-dark relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-cocoa text-cream">
+        {/* Arka planda yavaşça değişen ürün fotoğrafları */}
+        <div aria-hidden className="absolute inset-0 -z-20">
+          {HERO_SLIDES.map((src, i) => (
+            <div key={src} className="hero-slide absolute inset-0" style={{ "--i": i } as React.CSSProperties}>
+              <Image src={src} alt="" fill priority={i === 0} sizes="100vw" className="object-cover" />
             </div>
-            <a href={SITE.reviewsUrl} target="_blank" rel="noopener" className="group mt-12 inline-flex items-center gap-4">
-              <span className="flex -space-x-3">
-                {["G", "S", "K"].map((l, i) => (
-                  <span key={l} className="grid size-10 place-items-center rounded-full border-2 border-cocoa text-sm font-bold" style={{ background: ["#a6192e", "#c9a04e", "#3a2620"][i] }}>
-                    {l}
-                  </span>
+          ))}
+        </div>
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(28,18,14,0.66)_0%,rgba(28,18,14,0.9)_62%,#1c120e_100%)]" />
+        <Image
+          src="/images/splash.png"
+          alt=""
+          width={900}
+          height={900}
+          className="pointer-events-none absolute -right-24 -top-24 -z-10 w-72 animate-float opacity-80 md:w-[26rem]"
+        />
+
+        <div className="container-x flex flex-1 flex-col items-center justify-center pb-16 pt-36 text-center">
+          <p className="fade-up flex items-center gap-4 text-xs font-bold uppercase tracking-[0.35em] text-gold-light" style={{ "--start": "0ms" } as React.CSSProperties}>
+            <span className="h-px w-10 bg-gold-light/60" />
+            Kuruluş {SITE.founded}
+            <span className="h-px w-10 bg-gold-light/60" />
+          </p>
+          <h1 className="mt-8 font-display font-medium leading-[0.9]">
+            <SplitText text="Ustalıkla" start={150} className="block text-4xl font-light text-cream/90 sm:text-6xl md:text-7xl" />
+            <span className="mt-2 block text-[3.9rem] sm:text-8xl md:text-[9rem] xl:text-[10.5rem]">
+              <SplitText text="Tatlı" start={500} className="text-gold-light" />{" "}
+              <SplitText text="Sanatı" start={800} className="italic text-[#e8475f]" />
+            </span>
+          </h1>
+          <p className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-cream/75 md:text-xl" style={{ "--start": "1300ms" } as React.CSSProperties}>
+            Geleneksel lezzetleri modern ve zarif dokunuşlarla yeniden yorumluyoruz. Her dilimde {new Date().getFullYear() - SITE.founded} yılın tecrübesi var.
+          </p>
+          <div className="fade-up mt-10 flex flex-wrap justify-center gap-3" style={{ "--start": "1550ms" } as React.CSSProperties}>
+            <Link href="/urunlerimiz/" className="btn btn-gold">
+              Lezzetlerimizi Keşfet <ArrowIcon width={18} height={18} />
+            </Link>
+            <Link href="/ozel-siparis/" className="btn btn-ghost text-cream">
+              Pasta Siparişi Ver
+            </Link>
+          </div>
+        </div>
+
+        <div className="fade-up container-x pb-8" style={{ "--start": "1800ms" } as React.CSSProperties}>
+          <div className="flex items-end justify-between gap-6 border-t border-white/10 pt-6 text-sm text-cream/70">
+            <a href={SITE.reviewsUrl} target="_blank" rel="noopener" className="group flex items-center gap-3">
+              <span className="flex gap-0.5 text-gold-light">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} width={14} height={14} />
                 ))}
               </span>
-              <span>
-                <span className="flex gap-0.5 text-gold-light">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon key={i} width={14} height={14} />
-                  ))}
-                </span>
-                <span className="text-sm text-cream/70 transition group-hover:text-cream">Google&apos;da misafirlerimizin yorumları →</span>
+              <span className="transition group-hover:text-cream">Google yorumları</span>
+            </a>
+            <a href="#vitrin" aria-label="Aşağı kaydır" className="hidden flex-col items-center gap-2 md:flex">
+              <span className="relative h-9 w-5 rounded-full border border-cream/40">
+                <span className="scroll-dot absolute left-1/2 top-1.5 size-1.5 -translate-x-1/2 rounded-full bg-cream" />
               </span>
             </a>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
-            <Image
-              src="/images/splash.png"
-              alt=""
-              width={900}
-              height={900}
-              className="pointer-events-none absolute -right-16 -top-16 w-64 animate-float opacity-90 md:w-80"
-            />
-            <div className="relative grid grid-cols-[1.15fr_1fr] gap-4">
-              <div className="relative aspect-[3/4.4] overflow-hidden rounded-t-full rounded-b-3xl ring-1 ring-white/10">
-                <Image src="/images/products/rumc.jpg" alt="Rumeli Çileklisi" fill priority sizes="(min-width:1024px) 28vw, 55vw" className="object-cover" />
-                <span className="absolute bottom-4 left-4 rounded-full bg-cream/90 px-3 py-1.5 text-xs font-bold text-ink backdrop-blur">Rumeli Çileklisi</span>
-              </div>
-              <div className="flex flex-col gap-4 pt-16">
-                <div className="relative aspect-square overflow-hidden rounded-3xl ring-1 ring-white/10">
-                  <Image src="/images/products/baklava.jpg" alt="Fıstıklı baklava" fill priority sizes="(min-width:1024px) 22vw, 45vw" className="object-cover" />
-                </div>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-b-full rounded-t-3xl ring-1 ring-white/10">
-                  <Image src="/images/neden3.jpg" alt="Doğal meyveli dondurmalar" fill sizes="(min-width:1024px) 22vw, 45vw" className="object-cover" />
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-6 -left-4 flex items-center gap-3 rounded-2xl bg-cream px-5 py-4 text-ink shadow-2xl md:-left-10">
-              <span className="font-display text-4xl font-semibold text-brand">31</span>
-              <span className="text-sm font-semibold leading-tight">
-                çeşit doğal
-                <br />
-                dondurma
-              </span>
-            </div>
+            <span className="hidden sm:block">{BRANCHES.length} şube · 31 çeşit dondurma · Her gün taze</span>
           </div>
         </div>
       </section>
@@ -133,7 +123,7 @@ export default function Home() {
       </div>
 
       {/* ───────────── KATEGORİLER ───────────── */}
-      <section className="py-24 md:py-32">
+      <section id="vitrin" className="scroll-mt-20 py-24 md:py-32">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <Reveal>
@@ -221,8 +211,8 @@ export default function Home() {
       </section>
 
       {/* ───────────── DONDURMA ───────────── */}
-      <section className="on-dark grain relative isolate overflow-hidden bg-cocoa py-24 text-cream md:py-32">
-        <div className="pointer-events-none absolute right-0 top-0 -z-10 size-[500px] rounded-full bg-brand/25 blur-[130px]" />
+      <section className="on-dark relative isolate overflow-hidden bg-cocoa py-24 text-cream md:py-32">
+        <div className="pointer-events-none absolute right-0 top-0 -z-10 size-[500px] rounded-full glow-brand" />
         <div className="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.1fr]">
           <Reveal>
             <p className="eyebrow">Tat Dondurma</p>
@@ -300,11 +290,10 @@ export default function Home() {
       {/* ───────────── DEĞERLER ───────────── */}
       <section className="bg-cream-2 py-24 md:py-32">
         <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center">Bizi biz yapanlar</p>
-            <h2 className="mt-4 font-display text-4xl font-medium leading-tight md:text-6xl">
-              Sanatın <em className="text-brand">zirvesi</em>, sofranızda.
-            </h2>
+          <Reveal className="text-center">
+            <p className="font-display text-5xl italic text-brand md:text-7xl">Sanatın</p>
+            <h2 className="font-display text-[3.4rem] font-normal uppercase leading-none tracking-[0.06em] sm:text-8xl md:text-[9rem]">Zirvesi</h2>
+            <p className="mt-6 text-xs font-bold uppercase tracking-[0.4em] text-muted md:text-sm">Bizi biz yapanlar</p>
           </Reveal>
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {VALUES.map((v, i) => (
@@ -376,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* ───────────── ŞUBELER ───────────── */}
-      <section className="on-dark grain relative overflow-hidden bg-cocoa-2 py-24 text-cream md:py-32">
+      <section className="on-dark relative overflow-hidden bg-cocoa-2 py-24 text-cream md:py-32">
         <div className="container-x relative">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <Reveal>

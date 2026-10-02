@@ -48,7 +48,7 @@ export default function BranchesPage() {
               {b.image ? (
                 <Image src={b.image} alt={`Tat Pastanesi ${b.name} şubesi`} fill sizes="(min-width:1024px) 33vw, 100vw" className="object-cover" />
               ) : (
-                <div className="on-dark grain absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_20%,_#a6192e_0%,_#1c120e_65%)] p-8 text-center text-cream">
+                <div className="on-dark absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_20%,_#a6192e_0%,_#1c120e_65%)] p-8 text-center text-cream">
                   <div>
                     <p className="font-display text-6xl italic">Tat</p>
                     <p className="mt-2 text-xs font-bold uppercase tracking-[0.25em] text-gold-light">{b.name}</p>

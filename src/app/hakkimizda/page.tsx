@@ -61,8 +61,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="on-dark grain relative overflow-hidden bg-cocoa py-24 text-cream md:py-32">
-        <div className="pointer-events-none absolute -left-32 top-0 size-[460px] rounded-full bg-brand/30 blur-[130px]" />
+      <section className="on-dark relative overflow-hidden bg-cocoa py-24 text-cream md:py-32">
+        <div className="pointer-events-none absolute -left-32 top-0 size-[460px] rounded-full glow-brand" />
         <div className="container-x relative grid gap-6 md:grid-cols-2">
           {[
             [

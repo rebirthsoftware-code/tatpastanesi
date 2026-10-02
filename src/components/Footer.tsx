@@ -5,7 +5,7 @@ import { InstagramIcon, MenuBookIcon, PhoneIcon } from "./Icons";
 
 export default function Footer() {
   return (
-    <footer className="on-dark grain relative overflow-hidden bg-cocoa pb-28 pt-20 text-cream/80 md:pb-10">
+    <footer className="on-dark relative overflow-hidden bg-cocoa pb-28 pt-20 text-cream/80 md:pb-10">
       <div className="container-x relative">
         <div className="grid gap-14 lg:grid-cols-[1.2fr_2fr]">
           <div>

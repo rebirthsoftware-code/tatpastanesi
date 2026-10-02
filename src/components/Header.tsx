@@ -109,7 +109,7 @@ export default function Header() {
         }`}
         aria-hidden={!open}
       >
-        <div className="grain pointer-events-none absolute inset-0" />
+        <div className="pointer-events-none absolute inset-0" />
         <nav aria-label="Mobil menü" className="container-x relative flex flex-1 flex-col justify-center pt-28">
           <ul className="space-y-1">
             {NAV.map((item, i) => (

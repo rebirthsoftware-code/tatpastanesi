@@ -10,6 +10,7 @@ export default function MobileBar() {
     <div className="fixed inset-x-3 bottom-3 z-40 md:hidden" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
       <div className="flex items-stretch overflow-visible rounded-2xl bg-cocoa/95 p-1 text-cream shadow-2xl shadow-cocoa/40 ring-1 ring-white/10 backdrop-blur-xl">
         <CallMenu placement="top" align="left" wrapperClassName="flex flex-1" className={`${item} w-full`} label="Ara" />
+        <CallMenu kind="whatsapp" placement="top" align="left" wrapperClassName="flex flex-1" className={`${item} w-full`} label="WhatsApp" />
         <Link href="/subelerimiz/" className={item}>
           <PinIcon width={18} height={18} /> Şubeler
         </Link>

@@ -157,8 +157,8 @@ export default function ProductCatalog() {
           ))}
         </div>
 
-        <div className="on-dark grain relative mt-24 overflow-hidden rounded-[2rem] bg-cocoa p-10 text-cream md:p-16">
-          <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full bg-brand/40 blur-[100px]" />
+        <div className="on-dark relative mt-24 overflow-hidden rounded-[2rem] bg-cocoa p-10 text-cream md:p-16">
+          <div className="pointer-events-none absolute -right-20 -top-20 size-80 rounded-full glow-brand" />
           <div className="relative grid gap-8 md:grid-cols-[1.5fr_1fr] md:items-center">
             <div>
               <p className="eyebrow">Güncel fiyatlar</p>

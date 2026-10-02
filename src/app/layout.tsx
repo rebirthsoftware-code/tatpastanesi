@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import MobileBar from "@/components/MobileBar";
+import WhatsAppFab from "@/components/WhatsAppFab";
 import { BRANCHES, SITE, instagramLink } from "@/data/site";
 import "./globals.css";
 
@@ -70,7 +71,14 @@ const orgJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="tr" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html lang="tr" className={`${fraunces.variable} ${manrope.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("tat-intro"))document.documentElement.classList.add("intro-seen");else sessionStorage.setItem("tat-intro","1")}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <a href="#icerik" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-cream focus:px-4 focus:py-2 focus:text-ink">
           İçeriğe geç
@@ -79,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="icerik">{children}</main>
         <Footer />
         <MobileBar />
+        <WhatsAppFab />
         <JsonLd data={orgJsonLd} />
       </body>
     </html>
