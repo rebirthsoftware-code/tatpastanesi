@@ -8,9 +8,11 @@ type Props = {
   delay?: number;
   className?: string;
   id?: string;
+  /** up: aşağıdan belirme · mask: maskenin içinden kayan başlık · card: büyüyerek gelen kart */
+  variant?: "up" | "mask" | "card";
 };
 
-export default function Reveal({ children, as: Tag = "div", delay = 0, className = "", id }: Props) {
+export default function Reveal({ children, as: Tag = "div", delay = 0, className = "", id, variant = "up" }: Props) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export default function Reveal({ children, as: Tag = "div", delay = 0, className
   }, []);
 
   return (
-    <Tag ref={ref} id={id} className={`reveal ${className}`} style={{ "--delay": `${delay}ms` } as React.CSSProperties}>
+    <Tag ref={ref} id={id} className={`reveal reveal-${variant} ${className}`} style={{ "--delay": `${delay}ms` } as React.CSSProperties}>
       {children}
     </Tag>
   );

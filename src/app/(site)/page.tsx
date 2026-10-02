@@ -56,7 +56,7 @@ export default function Home() {
             videoMobile={SETTINGS.hero_video_mobile}
           />
         ) : (
-          <div aria-hidden className="absolute inset-0 -z-20">
+          <div aria-hidden className="hero-scroll-bg absolute inset-0 -z-20">
             {HERO_SLIDES.map((src, i) => (
               <div key={src} className="hero-slide absolute inset-0" style={{ "--i": i } as React.CSSProperties}>
                 <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? undefined : "lazy"} fetchPriority={i === 0 ? "high" : "low"} sizes="(min-width:1024px) 100vw, 60vw" className="object-cover" />
@@ -74,7 +74,7 @@ export default function Home() {
           className="pointer-events-none absolute -right-24 -top-24 -z-10 w-72 animate-float opacity-80 md:w-[26rem]"
         />
 
-        <div className="container-x flex flex-1 flex-col items-center justify-center pb-16 pt-36 text-center">
+        <div className="hero-scroll-out container-x flex flex-1 flex-col items-center justify-center pb-16 pt-36 text-center">
           <p className="fade-up flex items-center gap-4 text-xs font-bold uppercase tracking-[0.35em] text-gold-light" style={{ "--start": "0ms" } as React.CSSProperties}>
             <span className="h-px w-10 bg-gold-light/60" />
             Kuruluş {SITE.founded}
@@ -136,7 +136,7 @@ export default function Home() {
       <section id="vitrin" className="scroll-mt-20 py-24 md:py-32">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <Reveal>
+            <Reveal variant="mask">
               <p className="eyebrow">Vitrinimizden</p>
               <h2 className="mt-4 max-w-xl font-display text-4xl font-medium leading-tight md:text-6xl">
                 Her damak için <em className="text-brand">bir lezzet</em>
@@ -153,8 +153,8 @@ export default function Home() {
             {CATEGORIES.map((c, i) => {
               const span = ["lg:col-span-2 lg:row-span-2", "lg:row-span-2", "", "", "lg:col-span-2", "lg:col-span-2"][i];
               return (
-                <Reveal key={c.slug} delay={i * 70} className={span}>
-                  <Link href={`/urunlerimiz/#${c.slug}`} className="group relative block h-full overflow-hidden rounded-3xl bg-cocoa text-cream">
+                <Reveal key={c.slug} delay={i * 90} className={span} variant="card">
+                  <Link href={`/urunlerimiz/#${c.slug}`} className="img-wipe group relative block h-full overflow-hidden rounded-3xl bg-cocoa text-cream">
                     <Image
                       src={c.cover}
                       alt={c.name}
@@ -183,8 +183,8 @@ export default function Home() {
       {/* ───────────── İMZA LEZZET ───────────── */}
       <section className="overflow-hidden bg-cream-2 py-24 md:py-32">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
-          <Reveal className="relative">
-            <div className="relative mx-auto aspect-square max-w-lg overflow-hidden rounded-full ring-[14px] ring-cream">
+          <Reveal className="relative min-w-0">
+            <div className="img-wipe parallax relative mx-auto aspect-square max-w-lg overflow-hidden rounded-full ring-[14px] ring-cream">
               <Image src="/images/menu/16.jpg" alt="Tat Pastanesi Rumeli Çileklisi" fill sizes="(min-width:1024px) 40vw, 90vw" className="object-cover" />
             </div>
             <div className="absolute -bottom-2 right-0 max-w-[16rem] rounded-2xl bg-cocoa p-5 text-cream shadow-xl md:right-6">
@@ -197,7 +197,7 @@ export default function Home() {
               <p className="mt-2 text-xs text-cream/60">— {REVIEWS[0].author}, Google</p>
             </div>
           </Reveal>
-          <Reveal delay={120}>
+          <Reveal delay={120} className="min-w-0">
             <p className="eyebrow">İmza lezzetimiz</p>
             <h2 className="mt-4 font-display text-5xl font-medium leading-[1.02] md:text-7xl">
               Rumeli <em className="text-brand">Çileklisi</em>
@@ -224,7 +224,7 @@ export default function Home() {
       <section className="on-dark relative isolate overflow-hidden bg-cocoa py-24 text-cream md:py-32">
         <div className="pointer-events-none absolute right-0 top-0 -z-10 size-[500px] rounded-full glow-brand" />
         <div className="container-x grid items-center gap-14 lg:grid-cols-[1fr_1.1fr]">
-          <Reveal>
+          <Reveal variant="mask">
             <p className="eyebrow">Tat Dondurma</p>
             <h2 className="mt-4 font-display text-5xl font-medium leading-[1.02] md:text-7xl">
               {FLAVORS.length} çeşit,
@@ -240,16 +240,16 @@ export default function Home() {
             </a>
           </Reveal>
           <Reveal delay={120} className="grid grid-cols-2 gap-4">
-            <div className="relative aspect-[3/5] overflow-hidden rounded-t-full rounded-b-3xl">
+            <div className="img-wipe parallax relative aspect-[3/5] overflow-hidden rounded-t-full rounded-b-3xl">
               <Image src="/images/neden3.jpg" alt="Böğürtlenli ve portakallı dondurmalar" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
             </div>
-            <div className="relative mt-16 aspect-[3/5] overflow-hidden rounded-b-full rounded-t-3xl">
+            <div className="img-wipe parallax relative mt-16 aspect-[3/5] overflow-hidden rounded-b-full rounded-t-3xl">
               <Image src="/images/neden1.jpg" alt="Paket dondurma hazırlanırken" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
             </div>
           </Reveal>
         </div>
         <div id="kulah" className="container-x relative mt-16 scroll-mt-24">
-          <Reveal>
+          <Reveal variant="card">
             <FlavorBuilder />
           </Reveal>
         </div>
@@ -265,7 +265,7 @@ export default function Home() {
                 ["/images/products/sekerpas.jpg", "Şeker hamurlu tasarım pasta"],
                 ["/images/products/sippas.jpg", "Çiçekli katlı tasarım pasta"],
               ].map(([src, alt], i) => (
-                <div key={src} className={`relative aspect-[3/5] overflow-hidden rounded-3xl bg-cocoa ${i === 1 ? "translate-y-10" : ""}`}>
+                <div key={src} className={`img-wipe parallax relative aspect-[3/5] overflow-hidden rounded-3xl bg-cocoa ${i === 1 ? "translate-y-10" : ""}`}>
                   <Image src={src} alt={alt} fill sizes="(min-width:1024px) 18vw, 33vw" className="object-cover" />
                 </div>
               ))}
@@ -301,15 +301,15 @@ export default function Home() {
       {/* ───────────── DEĞERLER ───────────── */}
       <section className="bg-cream-2 py-24 md:py-32">
         <div className="container-x">
-          <Reveal className="text-center">
+          <Reveal variant="mask" className="text-center">
             <p className="font-display text-5xl italic text-brand md:text-7xl">Sanatın</p>
             <h2 className="font-display text-[3.4rem] font-normal uppercase leading-none tracking-[0.06em] sm:text-8xl md:text-[9rem]">Zirvesi</h2>
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.4em] text-muted md:text-sm">Bizi biz yapanlar</p>
           </Reveal>
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {VALUES.map((v, i) => (
-              <Reveal key={v.kicker} delay={i * 100} className="group overflow-hidden rounded-3xl bg-cream shadow-[0_20px_60px_-30px_rgba(28,18,14,0.35)]">
-                <div className="relative h-56 overflow-hidden">
+              <Reveal key={v.kicker} delay={i * 120} variant="card" className="group overflow-hidden rounded-3xl bg-cream shadow-[0_20px_60px_-30px_rgba(28,18,14,0.35)]">
+                <div className="img-wipe parallax relative h-56 overflow-hidden">
                   <Image src={v.image} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-8">
@@ -341,7 +341,7 @@ export default function Home() {
       <section className="py-24 md:py-32">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <Reveal>
+            <Reveal variant="mask">
               <p className="eyebrow">Misafirlerimiz ne diyor?</p>
               <h2 className="mt-4 font-display text-4xl font-medium leading-tight md:text-6xl">
                 Tatlı sözler <em className="text-brand">için</em> teşekkürler.
@@ -355,7 +355,7 @@ export default function Home() {
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {REVIEWS.map((r, i) => (
-              <Reveal key={r.author} delay={i * 100} as="figure" className="flex h-full flex-col rounded-3xl border border-ink/10 bg-cream p-8">
+              <Reveal key={r.author} delay={i * 120} variant="card" as="figure" className="flex h-full flex-col rounded-3xl border border-ink/10 bg-cream p-8">
                 <div className="flex gap-0.5 text-gold">
                   {Array.from({ length: 5 }).map((_, k) => (
                     <StarIcon key={k} width={16} height={16} />
@@ -379,7 +379,7 @@ export default function Home() {
       <section className="on-dark relative overflow-hidden bg-cocoa-2 py-24 text-cream md:py-32">
         <div className="container-x relative">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <Reveal>
+            <Reveal variant="mask">
               <p className="eyebrow">5 şube, aynı lezzet</p>
               <h2 className="mt-4 font-display text-4xl font-medium leading-tight md:text-6xl">
                 Size en yakın <em className="text-gold-light">Tat</em>
@@ -393,7 +393,7 @@ export default function Home() {
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {BRANCHES.map((b, i) => (
-              <Reveal key={b.slug} delay={i * 70} className="flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
+              <Reveal key={b.slug} delay={i * 80} variant="card" className="flex flex-col rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
                 <div className="flex items-start justify-between gap-2">
                   <PinIcon className="text-gold-light" />
                   <OpenStatus open={b.open} close={b.close} dark />
