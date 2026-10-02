@@ -257,3 +257,45 @@
 }
 @keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
 @keyframes sheet-pop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
+
+/* ───── QR menü: ekran geçişleri ve giriş animasyonları ───── */
+.menu-screen .rise {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: rise 0.8s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+/* Giriş fotoğrafı yavaşça yakınlaşır */
+.welcome-zoom { animation: welcome-zoom 18s ease-out both; will-change: transform; }
+@keyframes welcome-zoom { from { transform: scale(1.15); } to { transform: scale(1); } }
+
+/* "Menüyü Görüntüle" butonunun hafif nabzı */
+.menu-screen .cta-glow { animation: rise 0.8s cubic-bezier(0.2, 0.75, 0.2, 1) forwards, cta-glow 2.6s ease-in-out 1.6s infinite; }
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(201 160 78 / 0.55); }
+  50% { box-shadow: 0 0 0 14px rgb(201 160 78 / 0); }
+}
+
+/* Tarayıcı View Transitions desteklemiyorsa: basit kayma */
+html:not(.has-vt) .menu-screen.screen-fwd { animation: screen-in-fwd 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+html:not(.has-vt) .menu-screen.screen-back { animation: screen-in-back 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes screen-in-fwd { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+@keyframes screen-in-back { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+
+/* View Transitions: kategori fotoğrafı büyüyerek sayfa başlığına dönüşür, sayfa yön verilerek kayar */
+::view-transition-group(*) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.3, 0.8, 0.2, 1); }
+html[data-menu-dir="fwd"]::view-transition-old(root) { animation: 0.4s ease both vt-out-left; }
+html[data-menu-dir="fwd"]::view-transition-new(root) { animation: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both vt-in-right; }
+html[data-menu-dir="back"]::view-transition-old(root) { animation: 0.4s ease both vt-out-right; }
+html[data-menu-dir="back"]::view-transition-new(root) { animation: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both vt-in-left; }
+@keyframes vt-out-left { to { opacity: 0; transform: translateX(-8%); } }
+@keyframes vt-out-right { to { opacity: 0; transform: translateX(8%); } }
+@keyframes vt-in-right { from { opacity: 0; transform: translateX(8%); } }
+@keyframes vt-in-left { from { opacity: 0; transform: translateX(-8%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-screen .rise { opacity: 1; transform: none; }
+  .welcome-zoom, .cta-glow { animation: none; }
+}
