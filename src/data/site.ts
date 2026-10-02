@@ -291,3 +291,13 @@ export const STATS = [
   { value: 500, suffix: "+", label: "Günlük taze ürün" },
   { value: 50, suffix: "B+", label: "Mutlu misafir" },
 ];
+
+/** "Külahını oluştur" bölümünde dondurma toplarının renkleri. */
+export const FLAVOR_COLORS: Record<string, string> = {
+  Sade: "#f6eedc", Çikolata: "#5a3222", "İtalyan Karameli": "#c98a3d", Tahin: "#d8b98c", Böğürtlen: "#7b2f5b",
+  Portakal: "#f39a3b", Kokteyl: "#f2a7b8", "Bal Badem": "#e9c98a", Ceviz: "#a57a52", İncir: "#8e5a6e", Muz: "#f5e39a",
+  Kestane: "#8a5a3b", "Damla Sakız": "#fbf7ef", "Damla Çikolata": "#efe4d2", "Antep Fıstığı": "#9cb86a", Karamel: "#b8743a",
+  Nero: "#2b1a14", Bitter: "#3d2219", "Hindistan Cevizi": "#fffaf2", Lotus: "#c58b52", Çilek: "#f07a8c", Limon: "#f7ea8a",
+  Vişne: "#9e1f3a", Şeftali: "#f8b98a", Mandalina: "#f7a24a", Karadut: "#4b1e3f", "Yeşil Elma": "#b9d97a",
+  "Frenk Üzümü": "#6a2148", "Yaban Mersini": "#5a4a9a", Atom: "#7ec8e8", Mango: "#f8c24a",
+};

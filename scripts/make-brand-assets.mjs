@@ -3,7 +3,7 @@ import sharp from "sharp";
 
 const logo = "public/images/tat-logo.png";
 
-for (const [file, size] of [["public/icon.png", 512], ["public/apple-icon.png", 180]]) {
+for (const [file, size] of [["src/app/icon.png", 192], ["src/app/apple-icon.png", 180]]) {
   const inner = Math.round(size * 0.92);
   const l = await sharp(logo).resize({ width: inner, height: inner, fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 0 } }).toBuffer();
   await sharp({ create: { width: size, height: size, channels: 4, background: file.includes("apple") ? "#fbf6ee" : { r: 0, g: 0, b: 0, alpha: 0 } } })

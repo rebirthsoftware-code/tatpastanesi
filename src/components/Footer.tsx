@@ -59,7 +59,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} {SITE.name}. Tüm hakları saklıdır.</p>
           <p>
             Tasarım &amp; Geliştirme:{" "}
-            <a href="https://www.instagram.com/rebirthsoftware/" target="_blank" rel="noopener" className="text-cream/80 underline-offset-4 hover:underline">
+            <a href="https://www.instagram.com/rebirthsoftware/" target="_blank" rel="noopener" className="text-cream/80 underline underline-offset-4 hover:text-cream">
               Rebirth Software
             </a>
           </p>

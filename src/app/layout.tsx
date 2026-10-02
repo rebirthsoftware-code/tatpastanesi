@@ -12,7 +12,6 @@ const fraunces = Fraunces({
   subsets: ["latin", "latin-ext"],
   variable: "--font-fraunces",
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
   display: "swap",
 });
 const manrope = Manrope({ subsets: ["latin", "latin-ext"], variable: "--font-manrope", display: "swap" });

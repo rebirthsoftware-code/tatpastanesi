@@ -27,6 +27,22 @@ export default function ProductCatalog() {
     [q],
   );
 
+  // Pencerede önceki / sonraki ürüne geçiş (görünen ürünler arasında)
+  const flat = useMemo(() => filtered.flatMap((c) => c.items.map((p) => ({ ...p, category: c.name }))), [filtered]);
+  const index = selected ? flat.findIndex((p) => p.name === selected.name && p.category === selected.category) : -1;
+  const go = (d: number) => index >= 0 && flat.length > 1 && setSelected(flat[(index + d + flat.length) % flat.length]);
+  const touchX = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+
   // Kaydırırken aktif kategoriyi işaretle
   useEffect(() => {
     const sections = CATEGORIES.map((c) => document.getElementById(c.slug)).filter(Boolean) as HTMLElement[];
@@ -56,7 +72,7 @@ export default function ProductCatalog() {
 
   return (
     <>
-      <div className="sticky top-[76px] z-30 border-b border-ink/10 bg-cream/90 backdrop-blur-xl">
+      <div className="catalog-bar sticky top-[76px] z-30 border-b border-ink/10 bg-cream/90 backdrop-blur-xl">
         <div className="container-x flex flex-col gap-3 py-3 md:flex-row md:items-center">
           <div ref={navRef} className="no-scrollbar -mx-5 flex flex-1 gap-2 overflow-x-auto px-5 md:mx-0 md:px-0">
             {CATEGORIES.map((c) => (
@@ -184,8 +200,30 @@ export default function ProductCatalog() {
       >
         {selected && (
           <div className="grid md:grid-cols-[1.2fr_1fr]">
-            <div className="relative aspect-square bg-cocoa">
-              <Image src={selected.image} alt={selected.name} fill sizes="(min-width:768px) 560px, 92vw" className="object-cover" />
+            <div
+              className="relative aspect-square bg-cocoa"
+              onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+              onTouchEnd={(e) => {
+                if (touchX.current === null) return;
+                const dx = e.changedTouches[0].clientX - touchX.current;
+                if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+                touchX.current = null;
+              }}
+            >
+              <Image key={selected.image + selected.name} src={selected.image} alt={selected.name} fill sizes="(min-width:768px) 560px, 92vw" className="animate-[fade-in_0.35s_ease] object-cover" />
+              {flat.length > 1 && (
+                <>
+                  <button type="button" onClick={() => go(-1)} aria-label="Önceki ürün" className="absolute left-3 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-cream/90 text-ink shadow-lg transition hover:bg-cream">
+                    <ArrowIcon width={18} height={18} className="rotate-180" />
+                  </button>
+                  <button type="button" onClick={() => go(1)} aria-label="Sonraki ürün" className="absolute right-3 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-cream/90 text-ink shadow-lg transition hover:bg-cream">
+                    <ArrowIcon width={18} height={18} />
+                  </button>
+                  <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-cocoa/70 px-3 py-1 text-xs font-semibold tabular-nums text-cream">
+                    {index + 1} / {flat.length}
+                  </span>
+                </>
+              )}
             </div>
             <div className="flex flex-col p-8 md:p-10">
               <div className="flex items-start justify-between gap-4">

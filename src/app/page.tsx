@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Counter from "@/components/Counter";
+import FlavorBuilder from "@/components/FlavorBuilder";
 import { ArrowIcon, HandIcon, HeritageIcon, LeafIcon, PinIcon, SparkIcon, StarIcon } from "@/components/Icons";
 import OpenStatus from "@/components/OpenStatus";
 import IntroCurtain from "@/components/IntroCurtain";
@@ -40,18 +41,17 @@ const VALUES = [
 
 export default function Home() {
   const favorites = CATEGORIES.find((c) => c.slug === "sutlu-tatlilar")!.items.slice(0, 8);
-  const flavors = CATEGORIES[0].varieties!.list;
 
   return (
     <>
       {/* ───────────── HERO ───────────── */}
       <IntroCurtain />
-      <section className="on-dark relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-cocoa text-cream">
+      <section className="has-intro on-dark relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-cocoa text-cream">
         {/* Arka planda yavaşça değişen ürün fotoğrafları */}
         <div aria-hidden className="absolute inset-0 -z-20">
           {HERO_SLIDES.map((src, i) => (
             <div key={src} className="hero-slide absolute inset-0" style={{ "--i": i } as React.CSSProperties}>
-              <Image src={src} alt="" fill priority={i === 0} sizes="100vw" className="object-cover" />
+              <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? undefined : "lazy"} fetchPriority={i === 0 ? "high" : "low"} sizes="(min-width:1024px) 100vw, 60vw" className="object-cover" />
             </div>
           ))}
         </div>
@@ -61,6 +61,7 @@ export default function Home() {
           alt=""
           width={900}
           height={900}
+          sizes="(min-width:768px) 26rem, 18rem"
           className="pointer-events-none absolute -right-24 -top-24 -z-10 w-72 animate-float opacity-80 md:w-[26rem]"
         />
 
@@ -225,13 +226,9 @@ export default function Home() {
               Gerçek meyve, gerçek fıstık, gerçek kakao. Her gün taze üretilen dondurmalarımızı külah, kâğıt helva, cup ya da paket
               olarak dilediğiniz gibi seçin.
             </p>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {flavors.map((f) => (
-                <span key={f} className="rounded-full border border-white/15 px-3.5 py-1.5 text-sm text-cream/85 transition hover:border-gold-light hover:text-gold-light">
-                  {f}
-                </span>
-              ))}
-            </div>
+            <a href="#kulah" className="btn btn-gold mt-8">
+              Kendi külahını oluştur
+            </a>
           </Reveal>
           <Reveal delay={120} className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[3/5] overflow-hidden rounded-t-full rounded-b-3xl">
@@ -240,6 +237,11 @@ export default function Home() {
             <div className="relative mt-16 aspect-[3/5] overflow-hidden rounded-b-full rounded-t-3xl">
               <Image src="/images/neden1.jpg" alt="Paket dondurma hazırlanırken" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
             </div>
+          </Reveal>
+        </div>
+        <div id="kulah" className="container-x relative mt-16 scroll-mt-24">
+          <Reveal>
+            <FlavorBuilder />
           </Reveal>
         </div>
       </section>

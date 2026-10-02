@@ -12,7 +12,7 @@
   --color-gold: #c9a04e;
   --color-gold-light: #e6c987;
   --color-ink: #2c1e16;
-  --color-muted: #7a6758;
+  --color-muted: #6a5647;
 
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
@@ -153,8 +153,9 @@
 
 /* ───── Ana sayfa giriş efektleri ───── */
 /* --shift: logolu açılış süresi; aynı oturumda ikinci ziyarette sıfırlanır. */
-:root { --shift: 1300ms; }
-:root.intro-seen { --shift: 0ms; }
+:root { --shift: 0ms; }
+.has-intro { --shift: 1300ms; }
+.intro-seen .has-intro { --shift: 0ms; }
 .intro-seen .intro-curtain { display: none; }
 @layer components {
   .letter {
@@ -204,3 +205,9 @@
   .hero-slide { animation: none; }
   .intro-curtain { display: none; }
 }
+
+@keyframes scoop { from { transform: translateY(-40px) scale(0.6); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.catalog-bar { transition: top 0.5s ease; }
+[data-header-hidden] .catalog-bar { top: 0; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }

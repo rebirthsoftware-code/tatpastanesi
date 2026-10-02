@@ -11,16 +11,28 @@ import { CloseIcon, InstagramIcon, MenuBookIcon, PhoneIcon } from "./Icons";
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      // Aşağı kaydırırken menüyü gizle, yukarı kaydırınca geri getir
+      if (Math.abs(y - last) > 6) setHidden(y > last && y > 240);
+      last = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => setOpen(false), [pathname]);
+
+  useEffect(() => {
+    document.documentElement.toggleAttribute("data-header-hidden", hidden && !open);
+  }, [hidden, open]);
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
@@ -35,7 +47,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${hidden && !open ? "-translate-y-full" : ""} ${
           solid ? "bg-cream/85 py-2 shadow-[0_8px_30px_-12px_rgba(28,18,14,0.25)] backdrop-blur-xl" : "py-4"
         }`}
       >
