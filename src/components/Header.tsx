@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BRANCHES, INSTAGRAM_URL, NAV, SITE } from "@/data/site";
 import CallMenu from "./CallMenu";
-import { ArrowIcon, InstagramIcon, MenuBookIcon } from "./Icons";
+import { InstagramIcon, MenuBookIcon } from "./Icons";
 import OpenStatus from "./OpenStatus";
 
 export default function Header() {
@@ -120,24 +120,22 @@ export default function Header() {
         data-open={open}
       >
         <div aria-hidden className="glow-brand pointer-events-none absolute -left-40 top-1/3 size-[520px] rounded-full" />
-        <div className="container-x relative flex min-h-full flex-col pb-8 pt-24">
-          <nav aria-label="Mobil menü">
-            <ul>
-              {NAV.map((item, i) => {
+        <div className="container-x relative flex min-h-full flex-col pb-8 pt-28">
+          <nav aria-label="Mobil menü" className="flex flex-1 flex-col justify-center">
+            <ul className="space-y-1">
+              {NAV.filter((n) => n.href !== "/").map((item, i) => {
                 const active = isActive(item.href);
                 return (
-                  <li key={item.href} className="menu-item border-b border-white/10" style={{ "--d": `${120 + i * 45}ms` } as React.CSSProperties}>
-                    <Link href={item.href} aria-current={active ? "page" : undefined} className="group flex items-center justify-between gap-4 py-2.5">
-                      <span>
-                        <span className={`flex items-center gap-3 font-display text-[1.7rem] leading-tight ${active ? "italic text-gold-light" : "text-cream"}`}>
-                          {active && <span className="size-2 rounded-full bg-gold-light" />}
-                          {item.label}
-                        </span>
-                        <span className="block text-[13px] text-cream/50">{item.hint}</span>
-                      </span>
-                      <span className="grid size-9 shrink-0 place-items-center rounded-full ring-1 ring-white/15 transition group-hover:bg-cream group-hover:text-ink">
-                        <ArrowIcon width={16} height={16} className="-rotate-45" />
-                      </span>
+                  <li key={item.href} className="menu-item" style={{ "--d": `${120 + i * 50}ms` } as React.CSSProperties}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`flex items-center gap-3 py-2 font-display text-[2.1rem] leading-tight transition ${
+                        active ? "italic text-gold-light" : "text-cream/90 hover:text-cream"
+                      }`}
+                    >
+                      {item.label}
+                      {active && <span className="size-2 rounded-full bg-gold-light" />}
                     </Link>
                   </li>
                 );
@@ -145,13 +143,13 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="menu-item mt-6 grid grid-cols-2 gap-2 text-sm font-bold" style={{ "--d": "460ms" } as React.CSSProperties}>
+          <div className="menu-item mt-10 grid grid-cols-2 gap-2 text-sm font-bold" style={{ "--d": "460ms" } as React.CSSProperties}>
             <CallMenu
               placement="top"
               align="left"
               label="Ara"
               wrapperClassName="flex"
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-cream py-3.5 text-ink"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-cream py-3.5 text-ink"
             />
             <CallMenu
               kind="whatsapp"
@@ -159,28 +157,20 @@ export default function Header() {
               align="right"
               label="WhatsApp"
               wrapperClassName="flex"
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#1f9d55] py-3.5 text-white"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1f9d55] py-3.5 text-white"
             />
-            <Link href="/ozel-siparis/" className="flex items-center justify-center gap-2 rounded-2xl bg-white/5 py-3.5 ring-1 ring-white/10">
-              Pasta Siparişi
-            </Link>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-2xl bg-white/5 py-3.5 ring-1 ring-white/10">
-              <InstagramIcon width={16} height={16} /> Instagram
-            </a>
           </div>
 
-          <div className="menu-item mt-auto flex items-center gap-4 pt-10" style={{ "--d": "520ms" } as React.CSSProperties}>
-            {open && (
-              <span className="relative size-16 shrink-0 overflow-hidden rounded-2xl">
-                <Image src="/images/menu/16.jpg" alt="" fill sizes="64px" className="object-cover" />
+          <div className="menu-item mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-5 text-sm text-cream/70" style={{ "--d": "520ms" } as React.CSSProperties}>
+            <span className="flex items-center gap-2">
+              <OpenStatus open={BRANCHES[0].open} close={BRANCHES[0].close} dark />
+              <span>
+                {BRANCHES[0].open} – {BRANCHES[0].close}
               </span>
-            )}
-            <span className="text-sm leading-relaxed text-cream/70">
-              <span className="flex items-center gap-2">
-                <OpenStatus open={BRANCHES[0].open} close={BRANCHES[0].close} dark />
-              </span>
-              <span className="mt-1 block">Her gün {BRANCHES[0].open} – {BRANCHES[0].close} · {BRANCHES.length} şube</span>
             </span>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label="Instagram" className="grid size-10 place-items-center rounded-full ring-1 ring-white/20 transition hover:bg-white/10">
+              <InstagramIcon width={18} height={18} />
+            </a>
           </div>
         </div>
       </div>
