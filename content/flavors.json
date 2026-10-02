@@ -1,128 +1,156 @@
 {
   "flavors": [
     {
-      "name": "Sade",
-      "color": "#f6eedc"
-    },
-    {
-      "name": "Çikolata",
-      "color": "#5a3222"
-    },
-    {
-      "name": "İtalyan Karameli",
-      "color": "#c98a3d"
-    },
-    {
       "name": "Tahin",
       "color": "#d8b98c"
-    },
-    {
-      "name": "Böğürtlen",
-      "color": "#7b2f5b"
-    },
-    {
-      "name": "Portakal",
-      "color": "#f39a3b"
-    },
-    {
-      "name": "Kokteyl",
-      "color": "#f2a7b8"
-    },
-    {
-      "name": "Bal Badem",
-      "color": "#e9c98a"
-    },
-    {
-      "name": "Ceviz",
-      "color": "#a57a52"
-    },
-    {
-      "name": "İncir",
-      "color": "#8e5a6e"
-    },
-    {
-      "name": "Muz",
-      "color": "#f5e39a"
-    },
-    {
-      "name": "Kestane",
-      "color": "#8a5a3b"
-    },
-    {
-      "name": "Damla Sakız",
-      "color": "#fbf7ef"
-    },
-    {
-      "name": "Damla Çikolata",
-      "color": "#efe4d2"
-    },
-    {
-      "name": "Antep Fıstığı",
-      "color": "#9cb86a"
-    },
-    {
-      "name": "Karamel",
-      "color": "#b8743a"
     },
     {
       "name": "Nero",
       "color": "#2b1a14"
     },
     {
-      "name": "Bitter",
-      "color": "#3d2219"
+      "name": "Meyve Kokteyli",
+      "color": "#f2a7b8"
     },
     {
-      "name": "Hindistan Cevizi",
-      "color": "#fffaf2"
+      "name": "Antep Fıstıklı",
+      "color": "#9cb86a"
     },
     {
-      "name": "Lotus",
-      "color": "#c58b52"
+      "name": "Damla Çikolata",
+      "color": "#efe4d2"
     },
     {
-      "name": "Çilek",
-      "color": "#f07a8c"
+      "name": "Bodrum Mandalina",
+      "color": "#f7a24a"
     },
     {
-      "name": "Limon",
-      "color": "#f7ea8a"
-    },
-    {
-      "name": "Vişne",
-      "color": "#9e1f3a"
+      "name": "İncir",
+      "color": "#8e5a6e"
     },
     {
       "name": "Şeftali",
       "color": "#f8b98a"
     },
     {
-      "name": "Mandalina",
-      "color": "#f7a24a"
+      "name": "Kavun",
+      "color": "#f3c27a"
     },
     {
-      "name": "Karadut",
-      "color": "#4b1e3f"
+      "name": "Portakal",
+      "color": "#f39a3b"
     },
     {
-      "name": "Yeşil Elma",
-      "color": "#b9d97a"
+      "name": "Mango",
+      "color": "#f8c24a"
     },
     {
-      "name": "Frenk Üzümü",
-      "color": "#6a2148"
-    },
-    {
-      "name": "Yaban Mersini",
-      "color": "#5a4a9a"
+      "name": "Vişne",
+      "color": "#9e1f3a"
     },
     {
       "name": "Atom",
       "color": "#7ec8e8"
     },
     {
-      "name": "Mango",
-      "color": "#f8c24a"
+      "name": "Limon",
+      "color": "#f7ea8a"
+    },
+    {
+      "name": "Çikolata",
+      "color": "#5a3222"
+    },
+    {
+      "name": "Sade",
+      "color": "#f6eedc"
+    },
+    {
+      "name": "Çilek",
+      "color": "#f07a8c"
+    },
+    {
+      "name": "Karamel",
+      "color": "#b8743a"
+    },
+    {
+      "name": "Bal Badem",
+      "color": "#e9c98a"
+    },
+    {
+      "name": "Tiramisu",
+      "color": "#b98a64"
+    },
+    {
+      "name": "Meyveli Yoğurt",
+      "color": "#f4c6d2"
+    },
+    {
+      "name": "Karadut",
+      "color": "#4b1e3f"
+    },
+    {
+      "name": "Ceviz",
+      "color": "#a57a52"
+    },
+    {
+      "name": "Nane",
+      "color": "#a8e0c4"
+    },
+    {
+      "name": "Bitter",
+      "color": "#3d2219"
+    },
+    {
+      "name": "Yeşil Elma",
+      "color": "#b9d97a"
+    },
+    {
+      "name": "Kestane",
+      "color": "#8a5a3b"
+    },
+    {
+      "name": "Şirinler",
+      "color": "#5fb8ec"
+    },
+    {
+      "name": "Damla Sakız",
+      "color": "#fbf7ef"
+    },
+    {
+      "name": "Çikolata Portakal",
+      "color": "#8a4a26"
+    },
+    {
+      "name": "Yaban Mersini",
+      "color": "#5a4a9a"
+    },
+    {
+      "name": "Belçika",
+      "color": "#4a2a1e"
+    },
+    {
+      "name": "Lotus",
+      "color": "#c58b52"
+    },
+    {
+      "name": "Hindistan Cevizi",
+      "color": "#fffaf2"
+    },
+    {
+      "name": "Beyaz Çikolata",
+      "color": "#f3ead8"
+    },
+    {
+      "name": "Dağ Çileği",
+      "color": "#c9304a"
+    },
+    {
+      "name": "Muz",
+      "color": "#f5e39a"
+    },
+    {
+      "name": "Keçi Sütü",
+      "color": "#fbf8f0"
     }
   ]
 }

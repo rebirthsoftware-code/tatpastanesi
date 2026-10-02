@@ -53,6 +53,10 @@ export const BRANCHES: Branch[] = content.branches.map((b) => ({
 
 /** Site ayarları (Instagram, giriş videosu vb.) yönetim panelinden düzenlenir. */
 export const SETTINGS = content.settings;
+/** Instagram tarzı "öne çıkanlar": yönetim panelinden (content/stories.json) düzenlenir. */
+export type StoryGroup = { title: string; cover: string; slides: { image: string }[] };
+export const STORIES: StoryGroup[] = content.stories;
+
 export const INSTAGRAM_URL = `https://www.instagram.com/${SETTINGS.instagram}/`;
 
 export const mapsLink = (b: Branch) =>
@@ -166,10 +170,8 @@ const CATEGORY_LIST: Category[] = [
       { name: "Spoonful", menuKey: "spoonful", image: "/images/products/spon.jpg" },
       { name: "Çilekli Magnolya", menuKey: "cilekli-magnolya", image: "/images/products/cilmag.jpg" },
       { name: "Çikolatalı Magnolya", menuKey: "cikolatali-magnolya", image: "/images/products/cikmag.jpg" },
-      { name: "Fıstıklı Magnolya", image: "/images/products/fismag.jpg" },
       { name: "Orman Meyveli Magnolya", menuKey: "orman-meyveli-magnolya", image: "/images/products/ormag.jpg" },
       { name: "Renkli Petibör", menuKey: "renkli-petibor", image: "/images/products/petr.jpg" },
-      { name: "Meyveli Cup", image: "/images/products/meycup.jpg" },
       { name: "Tiramisu", menuKey: "tiramisu", image: "/images/products/tir.jpg" },
       { name: "Alman Pastası", menuKey: "alman-pastasi", image: "/images/products/almanp.jpg" },
       { name: "Beyaz Kremalı Muzlu Ankara Sarması", menuKey: "beyaz-kremali-muzlu-ankara-sarmasi", image: "/images/products/beyan.jpg" },

@@ -8,7 +8,9 @@ const MAX = 3;
 
 /** Ziyaretçinin 3 topa kadar çeşit seçip külahını canlı olarak gördüğü küçük oyun. */
 export default function FlavorBuilder() {
-  const [picked, setPicked] = useState<string[]>(["Antep Fıstığı", "Böğürtlen"]);
+  const [picked, setPicked] = useState<string[]>(() =>
+    ["Antep Fıstıklı", "Vişne"].filter((f) => FLAVORS.includes(f)).slice(0, MAX),
+  );
 
   const toggle = (f: string) =>
     setPicked((p) => (p.includes(f) ? p.filter((x) => x !== f) : p.length >= MAX ? [...p.slice(1), f] : [...p, f]));

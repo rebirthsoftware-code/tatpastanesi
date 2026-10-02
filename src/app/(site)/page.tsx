@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Counter from "@/components/Counter";
 import FlavorBuilder from "@/components/FlavorBuilder";
-import { ArrowIcon, HandIcon, HeritageIcon, LeafIcon, PinIcon, SparkIcon, StarIcon } from "@/components/Icons";
+import { ArrowIcon, HandIcon, HeritageIcon, InstagramIcon, LeafIcon, PinIcon, SparkIcon, StarIcon } from "@/components/Icons";
 import OpenStatus from "@/components/OpenStatus";
 import HeroMedia from "@/components/HeroMedia";
 import IntroCurtain from "@/components/IntroCurtain";
 import Reveal from "@/components/Reveal";
+import { PosterStrip, StoryHighlights } from "@/components/Stories";
 import SplitText from "@/components/SplitText";
-import { BRANCHES, CATEGORIES, FLAVORS, REVIEWS, SETTINGS, SITE, STATS, mapsLink } from "@/data/site";
+import { BRANCHES, CATEGORIES, FLAVORS, INSTAGRAM_URL, REVIEWS, SETTINGS, SITE, STATS, mapsLink } from "@/data/site";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -334,6 +335,31 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ───────────── ÖNE ÇIKANLAR (Instagram afişleri) ───────────── */}
+      <section className="overflow-hidden bg-cream-2 py-24 md:py-32">
+        <div className="container-x">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <Reveal variant="mask">
+              <p className="eyebrow">Instagram&apos;dan</p>
+              <h2 className="mt-4 font-display text-4xl font-medium leading-tight md:text-6xl">
+                Tat&apos;tan <em className="text-brand">kareler</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={100}>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="btn btn-ghost text-ink">
+                <InstagramIcon width={18} height={18} /> @{SETTINGS.instagram}
+              </a>
+            </Reveal>
+          </div>
+          <Reveal className="mt-10">
+            <StoryHighlights className="-mx-5 px-5 md:mx-0 md:px-0" />
+          </Reveal>
+          <Reveal className="mt-8 min-w-0" variant="card">
+            <PosterStrip />
+          </Reveal>
         </div>
       </section>
 

@@ -1,0 +1,103 @@
+{
+  "groups": [
+    {
+      "title": "Waffle",
+      "cover": "/images/covers/waffle-kapak.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/15.jpg"
+        },
+        {
+          "image": "/images/stories/01.jpg"
+        },
+        {
+          "image": "/images/stories/02.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Tatlılar",
+      "cover": "/images/covers/tatlilar-kapak.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/04.jpg"
+        },
+        {
+          "image": "/images/stories/05.jpg"
+        },
+        {
+          "image": "/images/stories/06.jpg"
+        },
+        {
+          "image": "/images/stories/07.jpg"
+        },
+        {
+          "image": "/images/stories/08.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Magnolia",
+      "cover": "/images/covers/magnolia-kapak.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/14.jpg"
+        },
+        {
+          "image": "/images/stories/12.jpg"
+        },
+        {
+          "image": "/images/stories/13.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Dondurma",
+      "cover": "/images/covers/dondurma-vitrini.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/18.jpg"
+        },
+        {
+          "image": "/images/stories/09.jpg"
+        },
+        {
+          "image": "/images/stories/16.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Vitrin",
+      "cover": "/images/covers/pasta-vitrini.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/11.jpg"
+        },
+        {
+          "image": "/images/stories/17.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Pastalar",
+      "cover": "/images/covers/pembe-pasta.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/19.jpg"
+        },
+        {
+          "image": "/images/stories/20.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Tost",
+      "cover": "/images/covers/tost-kapak.jpg",
+      "slides": [
+        {
+          "image": "/images/stories/03.jpg"
+        }
+      ]
+    }
+  ]
+}

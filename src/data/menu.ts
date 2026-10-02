@@ -21,8 +21,8 @@ export type MenuItem = {
 export type MenuCategory = { slug: string; name: Record<Lang, string>; cover: string; items: MenuItem[] };
 
 const CATEGORY_DEFS: Omit<MenuCategory, "items">[] = [
-  { slug: "dondurma", name: { tr: "Dondurma", en: "Ice Cream" }, cover: "/images/menu/1.jpg" },
-  { slug: "yas-pasta", name: { tr: "Yaş Pasta", en: "Cakes" }, cover: "/images/menu/41.jpg" },
+  { slug: "dondurma", name: { tr: "Dondurma", en: "Ice Cream" }, cover: "/images/covers/dondurma-vitrini.jpg" },
+  { slug: "yas-pasta", name: { tr: "Yaş Pasta", en: "Cakes" }, cover: "/images/covers/pasta-vitrini.jpg" },
   { slug: "sutlu-tatlilar", name: { tr: "Sütlü Tatlılar", en: "Milk Desserts" }, cover: "/images/menu/16.jpg" },
   { slug: "serbetli-tatlilar", name: { tr: "Şerbetli Tatlılar", en: "Syrup Desserts" }, cover: "/images/products/baklava.jpg" },
   { slug: "kuru-pasta", name: { tr: "Kuru Pasta", en: "Cookies" }, cover: "/images/menu/23.jpg" },

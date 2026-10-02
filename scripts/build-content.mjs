@@ -75,6 +75,11 @@ for (const g of grouped) g.blur = await blur(g.image);
 const { flavors } = await read("content/flavors.json");
 const { branches } = await read("content/branches.json");
 const settings = await read("content/settings.json");
+// Afişler {image} nesnesi ya da düz yol olarak gelebilir; boş gruplar atlanır
+const stories = ((await read("content/stories.json")).groups ?? [])
+  .map((g) => ({ title: g.title, cover: g.cover || "", slides: (g.slides ?? []).map((x) => ({ image: typeof x === "string" ? x : x?.image })).filter((x) => x.image) }))
+  .filter((g) => g.title && g.slides.length)
+  .map((g) => ({ ...g, cover: g.cover || g.slides[0].image }));
 for (const b of branches) if (!/^\+90\d{10}$/.test(b.phone)) errors.push(`şube ${b.name}: telefon +905xxxxxxxxx biçiminde olmalı`);
 
 if (errors.length) {
@@ -83,5 +88,5 @@ if (errors.length) {
 }
 
 await mkdir("src/data/generated", { recursive: true });
-await writeFile("src/data/generated/content.json", JSON.stringify({ items: grouped, flavors, branches, settings }, null, 1));
+await writeFile("src/data/generated/content.json", JSON.stringify({ items: grouped, flavors, branches, settings, stories }, null, 1));
 console.log(`İçerik hazır: ${grouped.length} ürün (${items.length} fiyat), ${flavors.length} dondurma çeşidi, ${branches.length} şube`);
