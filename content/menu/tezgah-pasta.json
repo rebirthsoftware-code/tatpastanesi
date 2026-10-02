@@ -1,0 +1,16 @@
+{
+  "name_tr": "Tezgah Pasta",
+  "name_en": "Counter Cake",
+  "category": "yas-pasta",
+  "order": 10,
+  "price": 900,
+  "desc_tr": "Günlük taze meyveli ve çikolatalı pastalar",
+  "desc_en": "Fresh daily fruit and chocolate cakes",
+  "image": "/images/menu/3.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

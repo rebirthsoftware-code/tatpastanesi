@@ -1,0 +1,16 @@
+{
+  "name_tr": "Sipariş Pasta",
+  "name_en": "Order Cake",
+  "category": "yas-pasta",
+  "order": 20,
+  "price": 1200,
+  "desc_tr": "Özel günleriniz için tasarlanmış pastalar",
+  "desc_en": "Custom cakes designed for your special days",
+  "image": "/images/products/sippas.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

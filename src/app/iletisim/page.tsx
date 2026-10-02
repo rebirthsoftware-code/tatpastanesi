@@ -4,7 +4,7 @@ import { ArrowIcon, InstagramIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/co
 import OpenStatus from "@/components/OpenStatus";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { BRANCHES, SITE, instagramLink, mapsLink, whatsappLink } from "@/data/site";
+import { BRANCHES, INSTAGRAM_URL, SETTINGS, SITE, mapsLink, whatsappLink } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -55,10 +55,7 @@ export default function ContactPage() {
                 <a href={whatsappLink(b)} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-full bg-[#1f9d55] py-3 text-white transition hover:brightness-110">
                   <WhatsAppIcon width={16} height={16} /> WhatsApp
                 </a>
-                <a href={instagramLink(b)} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-full py-3 ring-1 ring-ink/15 transition hover:ring-ink">
-                  <InstagramIcon width={16} height={16} /> Instagram
-                </a>
-                <a href={mapsLink(b)} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-full py-3 ring-1 ring-ink/15 transition hover:ring-ink">
+                <a href={mapsLink(b)} target="_blank" rel="noopener" className="col-span-2 flex items-center justify-center gap-2 rounded-full py-3 ring-1 ring-ink/15 transition hover:ring-ink">
                   <PinIcon width={16} height={16} /> Yol tarifi
                 </a>
               </div>
@@ -67,12 +64,23 @@ export default function ContactPage() {
           <Reveal delay={160} className="on-dark relative flex flex-col justify-between overflow-hidden rounded-[2rem] bg-brand p-8 text-cream">
             <div>
               <p className="eyebrow">Çalışma saatleri</p>
-              <p className="mt-4 font-display text-5xl">09:00 – 00:00</p>
+              <p className="mt-4 font-display text-5xl">
+                {BRANCHES[0].open} – {BRANCHES[0].close}
+              </p>
               <p className="mt-2 text-cream/80">Tüm şubelerimizde, haftanın her günü.</p>
             </div>
-            <a href={SITE.reviewsUrl} target="_blank" rel="noopener" className="mt-10 inline-flex items-center gap-2 font-bold text-gold-light">
-              Bizi Google&apos;da değerlendirin <ArrowIcon width={18} height={18} />
-            </a>
+            <div className="mt-10 space-y-3">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="flex items-center gap-3 rounded-2xl bg-white/10 p-4 transition hover:bg-white/15">
+                <InstagramIcon width={22} height={22} />
+                <span>
+                  <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">Instagram</span>
+                  <span className="font-bold">@{SETTINGS.instagram}</span>
+                </span>
+              </a>
+              <a href={SITE.reviewsUrl} target="_blank" rel="noopener" className="inline-flex items-center gap-2 font-bold text-gold-light">
+                Bizi Google&apos;da değerlendirin <ArrowIcon width={18} height={18} />
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

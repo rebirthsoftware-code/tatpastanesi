@@ -1,0 +1,64 @@
+{
+  "branches": [
+    {
+      "slug": "batikent",
+      "name": "Batıkent",
+      "district": "Yenimahalle",
+      "address": "Kentkoop Mahallesi, 1865. Cadde No:13/B, 06220 Batıkent / Ankara",
+      "phone_display": "0554 172 78 08",
+      "phone": "+905541727808",
+      "image": "/images/batikent.jpg",
+      "maps_query": "Tat Dondurma Pastanesi Kentkoop Mahallesi 1865. Cadde 13/B Batıkent Ankara",
+      "open": "09:00",
+      "close": "01:00"
+    },
+    {
+      "slug": "cakirlar",
+      "name": "Çakırlar",
+      "district": "Yenimahalle",
+      "address": "Turgut Özal Mah. 2179. Sk. No:6 D:F, 06370 Batıkent - Yenimahalle / Ankara",
+      "phone_display": "0536 631 50 11",
+      "phone": "+905366315011",
+      "image": "/images/cakirlar.jpg",
+      "maps_query": "Tat Dondurma Pastanesi 2179. Sk. No:6 Batıkent Yenimahalle Ankara",
+      "open": "09:00",
+      "close": "01:00"
+    },
+    {
+      "slug": "baglica",
+      "name": "Bağlıca",
+      "district": "Etimesgut",
+      "address": "Mermeroğlu Caddesi No:61/5, 06790 Bağlıca / Etimesgut / Ankara",
+      "phone_display": "0501 123 55 06",
+      "phone": "+905011235506",
+      "image": "/images/baglica.jpg",
+      "maps_query": "Tat Dondurma Pastanesi Mermeroğlu Caddesi 61 Bağlıca Etimesgut Ankara",
+      "open": "09:00",
+      "close": "01:00"
+    },
+    {
+      "slug": "eryaman-concept",
+      "name": "Eryaman Concept",
+      "district": "Etimesgut",
+      "address": "Yavuz Selim Mah. 11. Cadde 618. Sokak Concept Çarşı 7A/1, Eryaman / Etimesgut / Ankara",
+      "phone_display": "0543 684 56 72",
+      "phone": "+905436845672",
+      "image": "",
+      "maps_query": "Concept Çarşı 7A/1 Yavuz Selim Mahallesi Eryaman Etimesgut Ankara",
+      "open": "09:00",
+      "close": "01:00"
+    },
+    {
+      "slug": "eryaman-rada-park",
+      "name": "Eryaman Rada Park",
+      "district": "Etimesgut",
+      "address": "Eryaman Mah. 271. Cadde, Rada Park AVM No:3, Etimesgut / Ankara",
+      "phone_display": "0501 370 19 06",
+      "phone": "+905013701906",
+      "image": "",
+      "maps_query": "Rada Park AVM Eryaman Etimesgut Ankara",
+      "open": "09:00",
+      "close": "01:00"
+    }
+  ]
+}

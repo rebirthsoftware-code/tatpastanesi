@@ -1,0 +1,16 @@
+{
+  "name_tr": "Rumeli Çileklisi",
+  "name_en": "Rumeli Strawberry",
+  "category": "sutlu-tatlilar",
+  "order": 110,
+  "price": 250,
+  "desc_tr": "Klasik Rumeli usulü çilekli tatlı",
+  "desc_en": "Classic Rumeli style strawberry dessert",
+  "image": "/images/menu/16.jpg",
+  "featured": true,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

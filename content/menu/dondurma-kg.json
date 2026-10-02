@@ -1,0 +1,16 @@
+{
+  "name_tr": "Dondurma (Kg)",
+  "name_en": "Ice Cream (Kg)",
+  "category": "dondurma",
+  "order": 20,
+  "price": 1000,
+  "desc_tr": "Kilo ile taze dondurma seçeneği",
+  "desc_en": "Fresh ice cream by kg",
+  "image": "/images/menu/2.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

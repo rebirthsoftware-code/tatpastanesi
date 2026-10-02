@@ -1,0 +1,16 @@
+{
+  "name_tr": "Ekler (Porsiyon)",
+  "name_en": "Éclair (Portion)",
+  "category": "sutlu-tatlilar",
+  "order": 210,
+  "price": 200,
+  "desc_tr": "Çikolata kaplı, kremalı ekler",
+  "desc_en": "Cream-filled éclairs with chocolate glaze",
+  "image": "/images/menu/32.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

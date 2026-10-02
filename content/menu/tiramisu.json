@@ -1,0 +1,16 @@
+{
+  "name_tr": "Tiramisu",
+  "name_en": "Tiramisu",
+  "category": "sutlu-tatlilar",
+  "order": 120,
+  "price": 200,
+  "desc_tr": "Kahve aromalı İtalyan klasiği",
+  "desc_en": "Italian classic with coffee aroma",
+  "image": "/images/menu/18.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

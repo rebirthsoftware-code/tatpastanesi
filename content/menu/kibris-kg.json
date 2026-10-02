@@ -1,0 +1,16 @@
+{
+  "name_tr": "Kıbrıs (Kg)",
+  "name_en": "Cyprus Dessert (Per kg)",
+  "category": "sutlu-tatlilar",
+  "order": 250,
+  "price": 800,
+  "desc_tr": "İrmikli, fıstıklı Kıbrıs tatlısı — kiloyla",
+  "desc_en": "Semolina pistachio dessert — by kg",
+  "image": "/images/menu/36.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

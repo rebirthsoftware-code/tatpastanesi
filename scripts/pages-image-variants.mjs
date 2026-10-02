@@ -12,7 +12,7 @@ async function walk(dir) {
   for (const e of await readdir(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) out.push(...(await walk(p)));
-    else if (/\.(jpe?g|png)$/i.test(e.name)) out.push(p);
+    else if (/\.(jpe?g|png|webp|avif|gif)$/i.test(e.name)) out.push(p);
   }
   return out;
 }

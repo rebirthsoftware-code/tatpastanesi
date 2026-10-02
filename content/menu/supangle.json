@@ -1,0 +1,16 @@
+{
+  "name_tr": "Supangle",
+  "name_en": "Supangle",
+  "category": "sutlu-tatlilar",
+  "order": 20,
+  "price": 200,
+  "desc_tr": "Geleneksel çikolatalı supangle",
+  "desc_en": "Traditional chocolate supangle",
+  "image": "/images/menu/6.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

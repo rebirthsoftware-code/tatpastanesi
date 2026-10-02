@@ -1,0 +1,16 @@
+{
+  "name_tr": "Demleme Çay",
+  "name_en": "Brewed Tea",
+  "category": "icecekler",
+  "order": 20,
+  "price": 50,
+  "desc_tr": "Taze demlenmiş Rize çayı",
+  "desc_en": "Freshly brewed Rize tea",
+  "image": "/images/menu/27.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

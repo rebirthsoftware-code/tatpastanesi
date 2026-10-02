@@ -29,7 +29,11 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           NEXT_TELEMETRY_DISABLED: "1"
+          # Alan adı bağlanınca depo ayarlarından (Settings → Secrets and variables → Actions → Variables) CUSTOM_DOMAIN tanımlayın
+          CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
       - run: touch out/.nojekyll
+      - if: ${{ vars.CUSTOM_DOMAIN != '' }}
+        run: echo "${{ vars.CUSTOM_DOMAIN }}" > out/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

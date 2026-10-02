@@ -1,0 +1,256 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# Tat Pastanesi yönetim paneli. Her "Save" işlemi GitHub'a kaydedilir ve site 1-2 dakika içinde güncellenir.
+# Yüklenen fotoğraflar otomatik olarak en fazla 1800px boyutunda WebP biçimine küçültülür.
+
+backend:
+  name: github
+  repo: rebirthsoftware-code/tatpastanesi
+  branch: ccr-bc70c968-5iqkk5
+  commit_messages:
+    create: 'Panel: {{collection}} – {{slug}} eklendi'
+    update: 'Panel: {{collection}} – {{slug}} güncellendi'
+    delete: 'Panel: {{collection}} – {{slug}} silindi'
+    uploadMedia: 'Panel: {{path}} yüklendi'
+    deleteMedia: 'Panel: {{path}} silindi'
+site_url: https://rebirthsoftware-code.github.io/tatpastanesi/
+display_url: https://rebirthsoftware-code.github.io/tatpastanesi/
+logo_url: ../icon.png
+media_folder: public/images/uploads
+public_folder: /images/uploads
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 84
+          width: 1800
+          height: 1800
+collections:
+  - name: menu
+    label: Menü Ürünleri
+    label_singular: Ürün
+    description: QR menüde ve sitede görünen ürünler, fiyatlar, içerik ve alerjen bilgileri.
+    folder: content/menu
+    format: json
+    create: true
+    delete: true
+    slug: '{{name_tr}}'
+    identifier_field: name_tr
+    summary: '{{name_tr}} · {{price}} ₺'
+    sortable_fields:
+      - name_tr
+      - price
+      - category
+      - order
+    view_groups:
+      - label: Kategori
+        field: category
+    fields:
+      - name: name_tr
+        label: Ürün adı (Türkçe)
+        widget: string
+      - name: name_en
+        label: Ürün adı (İngilizce)
+        widget: string
+        required: false
+        hint: Boş bırakılırsa Türkçe ad gösterilir.
+      - name: category
+        label: Kategori
+        widget: select
+        options:
+          - label: Dondurma
+            value: dondurma
+          - label: Yaş Pasta
+            value: yas-pasta
+          - label: Sütlü Tatlılar
+            value: sutlu-tatlilar
+          - label: Şerbetli Tatlılar
+            value: serbetli-tatlilar
+          - label: Kuru Pasta
+            value: kuru-pasta
+          - label: Waffle
+            value: waffle
+          - label: İçecekler
+            value: icecekler
+      - name: price
+        label: Fiyat (₺)
+        widget: number
+        value_type: float
+        min: 0
+      - name: image
+        label: Fotoğraf
+        widget: image
+        hint: Dikey (4:5) fotoğraflar en iyi sonucu verir. Büyük fotoğraflar otomatik küçültülür.
+      - name: desc_tr
+        label: Kısa açıklama (Türkçe)
+        widget: text
+        required: false
+      - name: desc_en
+        label: Kısa açıklama (İngilizce)
+        widget: text
+        required: false
+      - name: ingredients_tr
+        label: İçindekiler (Türkçe)
+        widget: text
+        required: false
+        hint: 'Örn: Süt, şeker, pirinç unu, vanilya'
+      - name: ingredients_en
+        label: İçindekiler (İngilizce)
+        widget: text
+        required: false
+      - name: calories
+        label: Kalori (kcal / porsiyon)
+        widget: number
+        value_type: int
+        min: 0
+        required: false
+      - name: allergens
+        label: Alerjenler
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - label: Gluten
+            value: gluten
+          - label: Süt
+            value: sut
+          - label: Yumurta
+            value: yumurta
+          - label: Sert kabuklu yemiş (fındık, ceviz, antep fıstığı, badem…)
+            value: sert-kabuklu
+          - label: Yer fıstığı
+            value: yer-fistigi
+          - label: Soya
+            value: soya
+          - label: Susam
+            value: susam
+          - label: Sülfit
+            value: sulfit
+          - label: Balık
+            value: balik
+          - label: Kabuklular
+            value: kabuklular
+          - label: Yumuşakçalar
+            value: yumusakcalar
+          - label: Kereviz
+            value: kereviz
+          - label: Hardal
+            value: hardal
+          - label: Acı bakla
+            value: aci-bakla
+      - name: order
+        label: Sıra
+        widget: number
+        value_type: int
+        default: 100
+        hint: Kategori içindeki sırası; küçük sayı önce gelir.
+      - name: featured
+        label: Çok satanlarda göster
+        widget: boolean
+        default: false
+      - name: active
+        label: Menüde göster
+        widget: boolean
+        default: true
+        hint: Kapatırsanız ürün silinmeden menüden gizlenir.
+singletons:
+  - name: flavors
+    label: Dondurma Çeşitleri
+    file: content/flavors.json
+    fields:
+      - name: flavors
+        label: Çeşitler
+        widget: list
+        summary: '{{name}}'
+        fields:
+          - name: name
+            label: Çeşit adı
+            widget: string
+          - name: color
+            label: Renk (külah ve menüdeki nokta)
+            widget: color
+            default: '#f6eedc'
+  - name: branches
+    label: Şubeler
+    file: content/branches.json
+    fields:
+      - name: branches
+        label: Şubeler
+        widget: list
+        summary: '{{name}}'
+        fields:
+          - name: name
+            label: Şube adı
+            widget: string
+          - name: slug
+            label: Kısa ad (adres çubuğu için, boşluksuz)
+            widget: string
+            hint: 'Örn: batikent'
+          - name: district
+            label: İlçe
+            widget: string
+          - name: address
+            label: Açık adres
+            widget: text
+          - name: phone_display
+            label: Telefon (görünen)
+            widget: string
+            hint: 'Örn: 0554 172 78 08'
+          - name: phone
+            label: Telefon (arama için)
+            widget: string
+            pattern:
+              - ^\+90\d{10}$
+              - +905xxxxxxxxx biçiminde yazın
+          - name: open
+            label: Açılış saati
+            widget: string
+            default: '09:00'
+            pattern:
+              - ^\d\d:\d\d$
+              - SS:DD biçiminde yazın
+          - name: close
+            label: Kapanış saati
+            widget: string
+            default: '01:00'
+            pattern:
+              - ^\d\d:\d\d$
+              - SS:DD biçiminde yazın
+          - name: image
+            label: Şube fotoğrafı
+            widget: image
+            required: false
+          - name: maps_query
+            label: Google Haritalar arama metni
+            widget: string
+            hint: Yol tarifi ve harita bu metinle aranır.
+  - name: settings
+    label: Site Ayarları
+    file: content/settings.json
+    fields:
+      - name: instagram
+        label: Instagram kullanıcı adı
+        widget: string
+        hint: '@ işareti olmadan, örn: tatdondurma.pastanesi'
+      - name: hero_video_desktop
+        label: Ana sayfa videosu – bilgisayar (yatay)
+        widget: file
+        required: false
+        media_folder: /public/videos
+        public_folder: /videos
+        hint: MP4, en fazla ~10 MB önerilir. Boşsa ana sayfada fotoğraf geçişi gösterilir.
+      - name: hero_video_mobile
+        label: Ana sayfa videosu – telefon (dikey)
+        widget: file
+        required: false
+        media_folder: /public/videos
+        public_folder: /videos
+      - name: hero_poster
+        label: Video yüklenene kadar görünen fotoğraf
+        widget: image
+        required: false
+      - name: menu_background
+        label: QR menü giriş ekranı fotoğrafı
+        widget: image
+        required: false

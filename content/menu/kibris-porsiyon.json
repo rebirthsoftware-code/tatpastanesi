@@ -1,0 +1,16 @@
+{
+  "name_tr": "Kıbrıs (Porsiyon)",
+  "name_en": "Cyprus Dessert (Portion)",
+  "category": "sutlu-tatlilar",
+  "order": 200,
+  "price": 200,
+  "desc_tr": "İrmikli, fıstıklı ve kremalı Kıbrıs tatlısı",
+  "desc_en": "Semolina dessert with pistachio and cream",
+  "image": "/images/menu/31.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

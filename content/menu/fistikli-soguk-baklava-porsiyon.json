@@ -1,0 +1,16 @@
+{
+  "name_tr": "Fıstıklı Soğuk Baklava (Porsiyon)",
+  "name_en": "Cold Pistachio Baklava (Portion)",
+  "category": "sutlu-tatlilar",
+  "order": 230,
+  "price": 250,
+  "desc_tr": "Sütlü şerbetli, bol Antep fıstıklı soğuk baklava",
+  "desc_en": "Cold milk-syrup baklava with plenty of pistachio",
+  "image": "/images/menu/34.jpg",
+  "featured": true,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

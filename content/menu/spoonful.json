@@ -1,0 +1,16 @@
+{
+  "name_tr": "Spoonful",
+  "name_en": "Spoonful",
+  "category": "sutlu-tatlilar",
+  "order": 60,
+  "price": 200,
+  "desc_tr": "Kremalı kaşık tatlısı",
+  "desc_en": "Creamy spoonful dessert",
+  "image": "/images/menu/10.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

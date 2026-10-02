@@ -1,0 +1,16 @@
+{
+  "name_tr": "Çikolatalı Muzlu Malaga",
+  "name_en": "Chocolate Banana Malaga Cake",
+  "category": "sutlu-tatlilar",
+  "order": 280,
+  "price": 250,
+  "desc_tr": "Çikolata ve muzla hazırlanan Malaga pasta",
+  "desc_en": "Malaga cake with chocolate and banana",
+  "image": "/images/menu/39.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

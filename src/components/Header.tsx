@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BRANCHES, NAV, SITE, instagramLink } from "@/data/site";
+import { BRANCHES, INSTAGRAM_URL, NAV, SITE } from "@/data/site";
 import CallMenu from "./CallMenu";
 import { ArrowIcon, InstagramIcon, MenuBookIcon } from "./Icons";
 import OpenStatus from "./OpenStatus";
@@ -164,7 +164,7 @@ export default function Header() {
             <Link href="/ozel-siparis/" className="flex items-center justify-center gap-2 rounded-2xl bg-white/5 py-3.5 ring-1 ring-white/10">
               Pasta Siparişi
             </Link>
-            <a href={instagramLink(BRANCHES[0])} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-2xl bg-white/5 py-3.5 ring-1 ring-white/10">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="flex items-center justify-center gap-2 rounded-2xl bg-white/5 py-3.5 ring-1 ring-white/10">
               <InstagramIcon width={16} height={16} /> Instagram
             </a>
           </div>

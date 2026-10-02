@@ -1,0 +1,16 @@
+{
+  "name_tr": "Çilekli Magnolya",
+  "name_en": "Strawberry Magnolia",
+  "category": "sutlu-tatlilar",
+  "order": 70,
+  "price": 200,
+  "desc_tr": "Taze çilekli ve bisküvili magnolya",
+  "desc_en": "Magnolia with fresh strawberries and biscuits",
+  "image": "/images/menu/11.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

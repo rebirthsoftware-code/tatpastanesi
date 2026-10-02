@@ -1,0 +1,16 @@
+{
+  "name_tr": "Brownie (Kg)",
+  "name_en": "Brownie (Per kg)",
+  "category": "sutlu-tatlilar",
+  "order": 260,
+  "price": 800,
+  "desc_tr": "Yoğun çikolatalı brownie — kiloyla",
+  "desc_en": "Rich chocolate brownie — by kg",
+  "image": "/images/menu/37.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

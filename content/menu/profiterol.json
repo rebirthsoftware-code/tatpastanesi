@@ -1,0 +1,16 @@
+{
+  "name_tr": "Profiterol",
+  "name_en": "Profiterole",
+  "category": "sutlu-tatlilar",
+  "order": 10,
+  "price": 200,
+  "desc_tr": "Zengin çikolata soslu nefis profiterol",
+  "desc_en": "Delicious profiterole with rich chocolate sauce",
+  "image": "/images/menu/5.jpg",
+  "featured": true,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

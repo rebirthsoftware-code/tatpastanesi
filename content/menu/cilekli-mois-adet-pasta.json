@@ -1,0 +1,16 @@
+{
+  "name_tr": "Çilekli Mois Adet Pasta",
+  "name_en": "Strawberry Moist Cake (Single Serving)",
+  "category": "yas-pasta",
+  "order": 30,
+  "price": 300,
+  "desc_tr": "Çilekli, nemli keki ve hafif kremasıyla tek kişilik pasta",
+  "desc_en": "Single-serving moist cake with strawberries and light cream",
+  "image": "/images/menu/41.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

@@ -1,0 +1,16 @@
+{
+  "name_tr": "Orman Meyveli Magnolya",
+  "name_en": "Forest Fruit Magnolia",
+  "category": "sutlu-tatlilar",
+  "order": 90,
+  "price": 200,
+  "desc_tr": "Yaban mersini ve orman meyveli magnolya",
+  "desc_en": "Magnolia with blueberries and forest fruits",
+  "image": "/images/menu/14.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

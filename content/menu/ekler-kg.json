@@ -1,0 +1,16 @@
+{
+  "name_tr": "Ekler (Kg)",
+  "name_en": "Éclairs (Per kg)",
+  "category": "sutlu-tatlilar",
+  "order": 220,
+  "price": 900,
+  "desc_tr": "Çikolata kaplı, kremalı ekler — kiloyla",
+  "desc_en": "Cream-filled éclairs with chocolate glaze — by kg",
+  "image": "/images/menu/33.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

@@ -1,0 +1,16 @@
+{
+  "name_tr": "Çikolatalı Magnolya",
+  "name_en": "Chocolate Magnolia",
+  "category": "sutlu-tatlilar",
+  "order": 80,
+  "price": 200,
+  "desc_tr": "Yoğun çikolatalı magnolya",
+  "desc_en": "Rich chocolate magnolia",
+  "image": "/images/menu/12.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

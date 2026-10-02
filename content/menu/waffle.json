@@ -1,0 +1,16 @@
+{
+  "name_tr": "Waffle",
+  "name_en": "Waffle",
+  "category": "waffle",
+  "order": 10,
+  "price": 300,
+  "desc_tr": "Bol meyveli ve çikolatalı waffle",
+  "desc_en": "Waffle with plenty of fruit and chocolate",
+  "image": "/images/menu/25.jpg",
+  "featured": true,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

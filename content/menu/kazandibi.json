@@ -1,0 +1,16 @@
+{
+  "name_tr": "Kazandibi",
+  "name_en": "Kazandibi",
+  "category": "sutlu-tatlilar",
+  "order": 170,
+  "price": 200,
+  "desc_tr": "Karamelize tabanıyla geleneksel fırın sütlü tatlı",
+  "desc_en": "Traditional milk pudding with a caramelised base",
+  "image": "/images/menu/28.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

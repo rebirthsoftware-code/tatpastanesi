@@ -1,0 +1,16 @@
+{
+  "name_tr": "Çikolatalı Muzlu Ankara Sarması",
+  "name_en": "Chocolate Banana Roll",
+  "category": "sutlu-tatlilar",
+  "order": 160,
+  "price": 200,
+  "desc_tr": "Çikolata kremalı muzlu rulo",
+  "desc_en": "Banana roll with chocolate cream",
+  "image": "/images/menu/22.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

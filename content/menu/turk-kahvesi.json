@@ -1,0 +1,16 @@
+{
+  "name_tr": "Türk Kahvesi",
+  "name_en": "Turkish Coffee",
+  "category": "icecekler",
+  "order": 10,
+  "price": 90,
+  "desc_tr": "Geleneksel közde Türk kahvesi",
+  "desc_en": "Traditional roasted Turkish coffee",
+  "image": "/images/menu/26.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

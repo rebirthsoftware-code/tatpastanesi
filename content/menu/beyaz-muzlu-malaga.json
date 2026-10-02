@@ -1,0 +1,16 @@
+{
+  "name_tr": "Beyaz Muzlu Malaga",
+  "name_en": "White Chocolate Banana Malaga Cake",
+  "category": "sutlu-tatlilar",
+  "order": 290,
+  "price": 250,
+  "desc_tr": "Beyaz krema ve muzla hazırlanan Malaga pasta",
+  "desc_en": "Malaga cake with white cream and banana",
+  "image": "/images/menu/40.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

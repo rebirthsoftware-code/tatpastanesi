@@ -1,0 +1,16 @@
+{
+  "name_tr": "Alman Pastası",
+  "name_en": "German Cake",
+  "category": "sutlu-tatlilar",
+  "order": 130,
+  "price": 150,
+  "desc_tr": "Kremalı pofuduk Alman pastası",
+  "desc_en": "Fluffy German cake with cream",
+  "image": "/images/menu/19.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BRANCHES, NAV, SITE, instagramLink } from "@/data/site";
+import { BRANCHES, INSTAGRAM_URL, NAV, SETTINGS, SITE } from "@/data/site";
 import { InstagramIcon, MenuBookIcon, PhoneIcon } from "./Icons";
 
 export default function Footer() {
@@ -21,6 +21,14 @@ export default function Footer() {
                 Pasta Siparişi
               </Link>
             </div>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-3 text-cream transition hover:text-gold-light">
+              <span className="grid size-11 place-items-center rounded-full ring-1 ring-white/20">
+                <InstagramIcon width={18} height={18} />
+              </span>
+              <span>
+                <span className="block text-xs uppercase tracking-[0.2em] text-cream/50">Instagram</span>@{SETTINGS.instagram}
+              </span>
+            </a>
           </div>
 
           <div className="grid gap-10 sm:grid-cols-[1fr_2fr]">
@@ -44,9 +52,6 @@ export default function Footer() {
                     <p className="font-semibold text-cream">{b.name}</p>
                     <a href={`tel:${b.phone}`} className="mt-1 flex items-center gap-2 text-sm tabular-nums transition hover:text-cream">
                       <PhoneIcon width={14} height={14} /> {b.phoneDisplay}
-                    </a>
-                    <a href={instagramLink(b)} target="_blank" rel="noopener" className="mt-1 flex items-center gap-2 text-sm transition hover:text-cream">
-                      <InstagramIcon width={14} height={14} /> @{b.instagram}
                     </a>
                   </li>
                 ))}

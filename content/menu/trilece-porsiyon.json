@@ -1,0 +1,16 @@
+{
+  "name_tr": "Trileçe (Porsiyon)",
+  "name_en": "Trilece (Portion)",
+  "category": "sutlu-tatlilar",
+  "order": 180,
+  "price": 200,
+  "desc_tr": "Üç sütle ıslatılmış hafif kek, karamel kaplama",
+  "desc_en": "Light sponge soaked in three milks with caramel topping",
+  "image": "/images/menu/29.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

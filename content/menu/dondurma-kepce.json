@@ -1,0 +1,16 @@
+{
+  "name_tr": "Dondurma (Kepçe)",
+  "name_en": "Ice Cream (Scoop)",
+  "category": "dondurma",
+  "order": 10,
+  "price": 60,
+  "desc_tr": "Lezzetli ev yapımı dondurma",
+  "desc_en": "Delicious homemade ice cream",
+  "image": "/images/menu/1.jpg",
+  "featured": true,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

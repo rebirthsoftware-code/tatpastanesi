@@ -1,0 +1,16 @@
+{
+  "name_tr": "Renkli Petibör",
+  "name_en": "Petit Four",
+  "category": "sutlu-tatlilar",
+  "order": 100,
+  "price": 180,
+  "desc_tr": "Minik lezzet patlamaları",
+  "desc_en": "Little flavor bursts",
+  "image": "/images/menu/15.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

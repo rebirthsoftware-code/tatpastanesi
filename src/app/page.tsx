@@ -4,10 +4,11 @@ import Counter from "@/components/Counter";
 import FlavorBuilder from "@/components/FlavorBuilder";
 import { ArrowIcon, HandIcon, HeritageIcon, LeafIcon, PinIcon, SparkIcon, StarIcon } from "@/components/Icons";
 import OpenStatus from "@/components/OpenStatus";
+import HeroMedia from "@/components/HeroMedia";
 import IntroCurtain from "@/components/IntroCurtain";
 import Reveal from "@/components/Reveal";
 import SplitText from "@/components/SplitText";
-import { BRANCHES, CATEGORIES, REVIEWS, SITE, STATS, mapsLink } from "@/data/site";
+import { BRANCHES, CATEGORIES, FLAVORS, REVIEWS, SETTINGS, SITE, STATS, mapsLink } from "@/data/site";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -47,14 +48,22 @@ export default function Home() {
       {/* ───────────── HERO ───────────── */}
       <IntroCurtain />
       <section className="has-intro on-dark relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-cocoa text-cream">
-        {/* Arka planda yavaşça değişen ürün fotoğrafları */}
-        <div aria-hidden className="absolute inset-0 -z-20">
-          {HERO_SLIDES.map((src, i) => (
-            <div key={src} className="hero-slide absolute inset-0" style={{ "--i": i } as React.CSSProperties}>
-              <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? undefined : "lazy"} fetchPriority={i === 0 ? "high" : "low"} sizes="(min-width:1024px) 100vw, 60vw" className="object-cover" />
-            </div>
-          ))}
-        </div>
+        {/* Arka plan: panelden video eklendiyse video, yoksa yavaşça değişen ürün fotoğrafları */}
+        {SETTINGS.hero_video_desktop || SETTINGS.hero_video_mobile ? (
+          <HeroMedia
+            image={SETTINGS.hero_poster || HERO_SLIDES[0]}
+            videoDesktop={SETTINGS.hero_video_desktop}
+            videoMobile={SETTINGS.hero_video_mobile}
+          />
+        ) : (
+          <div aria-hidden className="absolute inset-0 -z-20">
+            {HERO_SLIDES.map((src, i) => (
+              <div key={src} className="hero-slide absolute inset-0" style={{ "--i": i } as React.CSSProperties}>
+                <Image src={src} alt="" fill priority={i === 0} loading={i === 0 ? undefined : "lazy"} fetchPriority={i === 0 ? "high" : "low"} sizes="(min-width:1024px) 100vw, 60vw" className="object-cover" />
+              </div>
+            ))}
+          </div>
+        )}
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(28,18,14,0.66)_0%,rgba(28,18,14,0.9)_62%,#1c120e_100%)]" />
         <Image
           src="/images/splash.png"
@@ -106,7 +115,7 @@ export default function Home() {
                 <span className="scroll-dot absolute left-1/2 top-1.5 size-1.5 -translate-x-1/2 rounded-full bg-cream" />
               </span>
             </a>
-            <span className="hidden sm:block">{BRANCHES.length} şube · 31 çeşit dondurma · Her gün taze</span>
+            <span className="hidden sm:block">{BRANCHES.length} şube · {FLAVORS.length} çeşit dondurma · Her gün taze</span>
           </div>
         </div>
       </section>
@@ -218,7 +227,7 @@ export default function Home() {
           <Reveal>
             <p className="eyebrow">Tat Dondurma</p>
             <h2 className="mt-4 font-display text-5xl font-medium leading-[1.02] md:text-7xl">
-              31 çeşit,
+              {FLAVORS.length} çeşit,
               <br />
               <em className="text-gold-light">%100 doğal.</em>
             </h2>

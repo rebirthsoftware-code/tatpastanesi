@@ -1,0 +1,16 @@
+{
+  "name_tr": "Sütlaç",
+  "name_en": "Rice Pudding",
+  "category": "sutlu-tatlilar",
+  "order": 30,
+  "price": 200,
+  "desc_tr": "Fırınlanmış tam kıvamında sütlaç",
+  "desc_en": "Perfectly baked rice pudding",
+  "image": "/images/menu/7.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

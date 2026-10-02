@@ -1,0 +1,16 @@
+{
+  "name_tr": "Tek Kişilik Pasta Çeşitleri",
+  "name_en": "Individual Cake Selection",
+  "category": "yas-pasta",
+  "order": 40,
+  "price": 300,
+  "desc_tr": "Vitrinden seçeceğiniz tek kişilik pasta dilimleri",
+  "desc_en": "Individual cake slices from our display",
+  "image": "/images/menu/42.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

@@ -1,0 +1,16 @@
+{
+  "name_tr": "Keşkül",
+  "name_en": "Keskul",
+  "category": "sutlu-tatlilar",
+  "order": 40,
+  "price": 200,
+  "desc_tr": "Bademli geleneksel sütlü tatlı",
+  "desc_en": "Traditional milk dessert with almonds",
+  "image": "/images/menu/8.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

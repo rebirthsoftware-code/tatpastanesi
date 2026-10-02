@@ -1,0 +1,16 @@
+{
+  "name_tr": "Limonlu Cheesecake",
+  "name_en": "Lemon Cheesecake",
+  "category": "sutlu-tatlilar",
+  "order": 300,
+  "price": 200,
+  "desc_tr": "Limon kreması ile ferah cheesecake",
+  "desc_en": "Refreshing cheesecake with lemon cream",
+  "image": "/images/menu/43.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

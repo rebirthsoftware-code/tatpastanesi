@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import BranchMap from "@/components/BranchMap";
-import { ClockIcon, InstagramIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/Icons";
+import { ClockIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/Icons";
 import OpenStatus from "@/components/OpenStatus";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import { BRANCHES, instagramLink, mapsLink, whatsappLink } from "@/data/site";
+import { BRANCHES, mapsLink, whatsappLink } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Şubelerimiz – Batıkent, Çakırlar, Bağlıca, Eryaman",
@@ -24,7 +24,7 @@ export default function BranchesPage() {
             Size en yakın <em className="text-gold-light">lezzet</em> noktası
           </>
         }
-        lead="Ankara'da beş şubemizle her gün 09:00 – 00:00 arası hizmetinizdeyiz."
+        lead={`Ankara'da ${BRANCHES.length} şubemizle her gün ${BRANCHES[0].open} – ${BRANCHES[0].close} arası hizmetinizdeyiz.`}
         image="/images/baglica.jpg"
       >
         <nav aria-label="Şubeler" className="mt-10 flex flex-wrap gap-2">
@@ -76,10 +76,6 @@ export default function BranchesPage() {
                 <div className="flex gap-3">
                   <dt><ClockIcon className="mt-0.5 text-brand" /><span className="sr-only">Çalışma saatleri</span></dt>
                   <dd>Her gün {b.open} – {b.close}</dd>
-                </div>
-                <div className="flex gap-3">
-                  <dt><InstagramIcon className="mt-0.5 text-brand" /><span className="sr-only">Instagram</span></dt>
-                  <dd><a href={instagramLink(b)} target="_blank" rel="noopener" className="hover:text-brand">@{b.instagram}</a></dd>
                 </div>
               </dl>
               <div className="mt-auto flex flex-wrap gap-2 pt-8">

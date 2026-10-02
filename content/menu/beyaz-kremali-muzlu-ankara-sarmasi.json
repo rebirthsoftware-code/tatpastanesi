@@ -1,0 +1,16 @@
+{
+  "name_tr": "Beyaz Kremalı Muzlu Ankara Sarması",
+  "name_en": "White Cream Banana Roll",
+  "category": "sutlu-tatlilar",
+  "order": 140,
+  "price": 200,
+  "desc_tr": "Geleneksel yumuşak rulo tatlı",
+  "desc_en": "Traditional soft roll dessert",
+  "image": "/images/products/beyan.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

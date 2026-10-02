@@ -1,0 +1,16 @@
+{
+  "name_tr": "Fıstıklı Soğuk Baklava (Kg)",
+  "name_en": "Cold Pistachio Baklava (Per kg)",
+  "category": "sutlu-tatlilar",
+  "order": 240,
+  "price": 1100,
+  "desc_tr": "Bol Antep fıstıklı soğuk baklava — kiloyla",
+  "desc_en": "Cold pistachio baklava — by kg",
+  "image": "/images/menu/35.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

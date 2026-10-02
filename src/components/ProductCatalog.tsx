@@ -60,8 +60,10 @@ export default function ProductCatalog() {
 
   // Aktif sekmeyi yatay menüde görünür tut
   useEffect(() => {
-    const el = navRef.current?.querySelector<HTMLElement>(`[data-slug="${active}"]`);
-    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    // Yalnızca çubuğu yatay kaydır; scrollIntoView sayfanın tamamını da kaydırabiliyor
+    const nav = navRef.current;
+    const chip = nav?.querySelector<HTMLElement>(`[data-slug="${active}"]`);
+    if (nav && chip) nav.scrollTo({ left: chip.offsetLeft - nav.clientWidth / 2 + chip.clientWidth / 2, behavior: "smooth" });
   }, [active]);
 
   useEffect(() => {
@@ -75,7 +77,7 @@ export default function ProductCatalog() {
     <>
       <div className="catalog-bar sticky top-[76px] z-30 border-b border-ink/10 bg-cream/90 backdrop-blur-xl">
         <div className="container-x flex flex-col gap-3 py-3 md:flex-row md:items-center">
-          <div ref={navRef} className="no-scrollbar -mx-5 flex flex-1 gap-2 overflow-x-auto px-5 md:mx-0 md:px-0">
+          <div ref={navRef} className="no-scrollbar relative -mx-5 flex flex-1 gap-2 overflow-x-auto px-5 md:mx-0 md:px-0">
             {CATEGORIES.map((c) => (
               <a
                 key={c.slug}
@@ -234,11 +236,11 @@ export default function ProductCatalog() {
                 </button>
               </div>
               <h3 className="mt-3 font-display text-4xl font-medium leading-tight">{selected.name}</h3>
-              {findMenuItem(selected.menuId) && (
+              {findMenuItem(selected.menuKey) && (
                 <p className="mt-2 flex flex-wrap items-baseline gap-x-2 font-display text-2xl tabular-nums text-brand">
-                  {formatPrice(findMenuItem(selected.menuId)!.price)}
-                  {findMenuItem(selected.menuId)!.name.tr !== selected.name && (
-                    <span className="font-sans text-sm text-muted">· {findMenuItem(selected.menuId)!.name.tr}</span>
+                  {formatPrice(findMenuItem(selected.menuKey)!.price)}
+                  {findMenuItem(selected.menuKey)!.name.tr !== selected.name && (
+                    <span className="font-sans text-sm text-muted">· {findMenuItem(selected.menuKey)!.name.tr}</span>
                   )}
                 </p>
               )}

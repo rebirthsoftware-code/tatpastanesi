@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
 import MobileBar from "@/components/MobileBar";
 import WhatsAppFab from "@/components/WhatsAppFab";
-import { BRANCHES, SITE, instagramLink } from "@/data/site";
+import { BRANCHES, INSTAGRAM_URL, SITE } from "@/data/site";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -54,7 +54,7 @@ const orgJsonLd = {
   url: SITE.url,
   logo: `${SITE.url}/images/tat-logo.png`,
   foundingDate: String(SITE.founded),
-  sameAs: BRANCHES.map(instagramLink),
+  sameAs: [INSTAGRAM_URL],
   subOrganization: BRANCHES.map((b) => ({
     "@type": "Bakery",
     name: `${SITE.name} – ${b.name}`,
@@ -64,7 +64,6 @@ const orgJsonLd = {
     servesCuisine: ["Pasta", "Tatlı", "Dondurma"],
     priceRange: "₺₺",
     ...(b.image ? { image: `${SITE.url}${b.image}` } : {}),
-    sameAs: instagramLink(b),
   })),
 };
 

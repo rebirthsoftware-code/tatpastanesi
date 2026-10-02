@@ -1,0 +1,128 @@
+{
+  "flavors": [
+    {
+      "name": "Sade",
+      "color": "#f6eedc"
+    },
+    {
+      "name": "Çikolata",
+      "color": "#5a3222"
+    },
+    {
+      "name": "İtalyan Karameli",
+      "color": "#c98a3d"
+    },
+    {
+      "name": "Tahin",
+      "color": "#d8b98c"
+    },
+    {
+      "name": "Böğürtlen",
+      "color": "#7b2f5b"
+    },
+    {
+      "name": "Portakal",
+      "color": "#f39a3b"
+    },
+    {
+      "name": "Kokteyl",
+      "color": "#f2a7b8"
+    },
+    {
+      "name": "Bal Badem",
+      "color": "#e9c98a"
+    },
+    {
+      "name": "Ceviz",
+      "color": "#a57a52"
+    },
+    {
+      "name": "İncir",
+      "color": "#8e5a6e"
+    },
+    {
+      "name": "Muz",
+      "color": "#f5e39a"
+    },
+    {
+      "name": "Kestane",
+      "color": "#8a5a3b"
+    },
+    {
+      "name": "Damla Sakız",
+      "color": "#fbf7ef"
+    },
+    {
+      "name": "Damla Çikolata",
+      "color": "#efe4d2"
+    },
+    {
+      "name": "Antep Fıstığı",
+      "color": "#9cb86a"
+    },
+    {
+      "name": "Karamel",
+      "color": "#b8743a"
+    },
+    {
+      "name": "Nero",
+      "color": "#2b1a14"
+    },
+    {
+      "name": "Bitter",
+      "color": "#3d2219"
+    },
+    {
+      "name": "Hindistan Cevizi",
+      "color": "#fffaf2"
+    },
+    {
+      "name": "Lotus",
+      "color": "#c58b52"
+    },
+    {
+      "name": "Çilek",
+      "color": "#f07a8c"
+    },
+    {
+      "name": "Limon",
+      "color": "#f7ea8a"
+    },
+    {
+      "name": "Vişne",
+      "color": "#9e1f3a"
+    },
+    {
+      "name": "Şeftali",
+      "color": "#f8b98a"
+    },
+    {
+      "name": "Mandalina",
+      "color": "#f7a24a"
+    },
+    {
+      "name": "Karadut",
+      "color": "#4b1e3f"
+    },
+    {
+      "name": "Yeşil Elma",
+      "color": "#b9d97a"
+    },
+    {
+      "name": "Frenk Üzümü",
+      "color": "#6a2148"
+    },
+    {
+      "name": "Yaban Mersini",
+      "color": "#5a4a9a"
+    },
+    {
+      "name": "Atom",
+      "color": "#7ec8e8"
+    },
+    {
+      "name": "Mango",
+      "color": "#f8c24a"
+    }
+  ]
+}

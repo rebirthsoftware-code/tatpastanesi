@@ -1,0 +1,16 @@
+{
+  "name_tr": "Kuru Pasta (Kg)",
+  "name_en": "Cookies (Kg)",
+  "category": "kuru-pasta",
+  "order": 20,
+  "price": 800,
+  "desc_tr": "Kilo ile lezzetli kuru pastalar",
+  "desc_en": "Fresh cookies by kg",
+  "image": "/images/menu/24.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}

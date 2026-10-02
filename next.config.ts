@@ -2,8 +2,9 @@ import type { NextConfig } from "next";
 
 // GitHub Pages önizlemesi için statik çıktı (GITHUB_PAGES=true ile derlenir).
 // Vercel'de bu değişken yoktur; site normal şekilde çalışır.
+// CUSTOM_DOMAIN tanımlıysa (örn. www.tatpastanesi.com) site alan adının kökünden yayınlanır.
 const isPages = process.env.GITHUB_PAGES === "true";
-const basePath = isPages ? "/tatpastanesi" : "";
+const basePath = isPages && !process.env.CUSTOM_DOMAIN ? "/tatpastanesi" : "";
 
 const nextConfig: NextConfig = {
   // Eski sitedeki URL'ler (/urunlerimiz/ vb.) aynen korunur; arama motoru sıralaması kaybolmaz.
@@ -24,6 +25,13 @@ const nextConfig: NextConfig = {
         images: {
           formats: ["image/avif", "image/webp"],
           qualities: [70, 80],
+        },
+        // Yönetim paneli (public/admin/index.html)
+        async rewrites() {
+          return [
+            { source: "/admin", destination: "/admin/index.html" },
+            { source: "/admin/", destination: "/admin/index.html" },
+          ];
         },
         async headers() {
           return [

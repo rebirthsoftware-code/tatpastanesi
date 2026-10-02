@@ -1,0 +1,16 @@
+{
+  "name_tr": "Trileçe (Kg)",
+  "name_en": "Trilece (Per kg)",
+  "category": "sutlu-tatlilar",
+  "order": 270,
+  "price": 800,
+  "desc_tr": "Karamel kaplı trileçe — kiloyla",
+  "desc_en": "Caramel-topped trileçe — by kg",
+  "image": "/images/menu/38.jpg",
+  "featured": false,
+  "active": true,
+  "ingredients_tr": "",
+  "ingredients_en": "",
+  "calories": null,
+  "allergens": []
+}
