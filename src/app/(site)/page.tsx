@@ -22,21 +22,21 @@ const VALUES = [
     kicker: "Gelenek",
     title: "Kuşaktan kuşağa reçeteler",
     text: "2001'den bu yana aynı özenle uyguladığımız tariflerimizi her gün yeniden, ilk günkü heyecanla hazırlıyoruz.",
-    image: "/images/products/kurupass.jpg",
+    image: "/images/covers/deger-gelenek.jpg",
   },
   {
     icon: HandIcon,
     kicker: "Ustalık",
     title: "Usta ellerin dokunuşu",
     text: "Her hamur ustalarımızın elinde şekil bulur, her süsleme tek tek, sabırla yapılır. Seri üretim değil, zanaat.",
-    image: "/images/covers/rulo-vitrini.jpg",
+    image: "/images/covers/deger-ustalik.jpg",
   },
   {
     icon: LeafIcon,
     kicker: "Doğallık",
     title: "Saf ve taze malzeme",
     text: "Günlük taze süt, mevsiminde olgunlaşmış meyveler, gerçek Antep fıstığı. Katkı yok, kestirme yok.",
-    image: "/images/neden3.jpg",
+    image: "/images/covers/deger-dogallik.jpg",
   },
 ];
 
