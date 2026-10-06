@@ -56,21 +56,21 @@ for (const g of grouped) {
   if (g.variants.length === 1 && !g.variants[0].label.tr) g.variants = [];
 }
 
-// Fotoğraf yüklenirken gösterilecek küçük bulanık önizleme
-const blurCache = new Map();
-async function blur(src) {
-  if (blurCache.has(src)) return blurCache.get(src);
-  let data = "";
+// Fotoğraf yüklenirken arka planda gösterilecek baskın renk (bulanık önizlemeden çok daha ucuz)
+const toneCache = new Map();
+async function tone(src) {
+  if (toneCache.has(src)) return toneCache.get(src);
+  let color = "";
   try {
-    const buf = await sharp(path.join("public", src)).resize(16).webp({ quality: 40 }).toBuffer();
-    data = `data:image/webp;base64,${buf.toString("base64")}`;
+    const { dominant: d } = await sharp(path.join("public", src)).stats();
+    color = `rgb(${d.r} ${d.g} ${d.b})`;
   } catch {
     errors.push(`${src}: fotoğraf bulunamadı`);
   }
-  blurCache.set(src, data);
-  return data;
+  toneCache.set(src, color);
+  return color;
 }
-for (const g of grouped) g.blur = await blur(g.image);
+for (const g of grouped) g.tone = await tone(g.image);
 
 const { flavors } = await read("content/flavors.json");
 const { branches } = await read("content/branches.json");

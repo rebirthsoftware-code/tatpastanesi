@@ -7,7 +7,7 @@ export type MenuItem = {
   key: string;
   keys: string[]; // birleştirilen seçeneklerin dosya adları
   variants: MenuVariant[]; // Porsiyon / Kg gibi seçenekler (yoksa boş)
-  blur: string; // fotoğraf yüklenirken gösterilen küçük önizleme
+  tone: string; // fotoğraf yüklenirken gösterilen baskın renk
   category: string;
   price: number; // TL (seçenekli ürünlerde en düşük fiyat)
   name: Record<Lang, string>;

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { flushSync } from "react-dom";
 import { ALLERGENS, MENU, formatPrice, type Lang, type MenuCategory, type MenuItem } from "@/data/menu";
 import { BRANCHES, FLAVORS, INSTAGRAM_URL, SETTINGS, SITE, whatsappLink } from "@/data/site";
 import HeroMedia from "./HeroMedia";
@@ -111,7 +110,7 @@ function LangToggle({ lang, onChange, dark = false }: { lang: Lang; onChange: (l
     <div
       role="group"
       aria-label="Dil / Language"
-      className={`flex rounded-full p-1 text-xs font-bold backdrop-blur ${dark ? "bg-black/25 ring-1 ring-white/15" : "bg-cream-2"}`}
+      className={`flex rounded-full p-1 text-xs font-bold ${dark ? "bg-black/40 ring-1 ring-white/15" : "bg-cream-2"}`}
     >
       {(["tr", "en"] as const).map((l) => (
         <button
@@ -138,7 +137,7 @@ export default function MenuBoard() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<{ item: MenuItem; list: MenuItem[] } | null>(null);
-  const [drag, setDrag] = useState(0);
+  const drag = useRef(0);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
   const screenRef = useRef(screen);
@@ -148,19 +147,11 @@ export default function MenuBoard() {
   const show = useCallback((next: Screen) => {
     const prev = screenRef.current;
     const forward = depth(next) >= depth(prev);
-    const apply = () => {
-      screenRef.current = next;
-      setDir(forward ? "fwd" : "back");
-      setScreen(next);
-      window.scrollTo(0, 0);
-    };
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const doc = document as Document & { startViewTransition?: (cb: () => void) => unknown };
-    document.documentElement.classList.toggle("has-vt", !!doc.startViewTransition);
-    if (doc.startViewTransition && !reduce) {
-      document.documentElement.dataset.menuDir = forward ? "fwd" : "back";
-      doc.startViewTransition(() => flushSync(apply));
-    } else apply();
+    // Yeni ekran yalnızca transform/opacity ile kayarak gelir (telefonda en ucuz geçiş)
+    screenRef.current = next;
+    setDir(forward ? "fwd" : "back");
+    setScreen(next);
+    window.scrollTo(0, 0);
   }, []);
 
   const go = (next: Screen) => {
@@ -209,7 +200,9 @@ export default function MenuBoard() {
     if (!d) return;
     if (selected && !d.open) d.showModal();
     if (!selected && d.open) d.close();
-    setDrag(0);
+    drag.current = 0;
+    d.style.transform = "";
+    d.style.transition = "";
   }, [selected]);
 
   useEffect(() => {
@@ -234,7 +227,7 @@ export default function MenuBoard() {
   const hasDetails = (i: MenuItem) => i.ingredients[lang] || i.calories !== null || i.allergens.length > 0;
 
   const TopBar = ({ title, back }: { title: string; back: Screen }) => (
-    <div className="sticky top-0 z-30 border-b border-ink/10 bg-cream/90 backdrop-blur-xl">
+    <div className="sticky top-0 z-30 border-b border-ink/10 bg-cream">
       <div className="container-x flex h-16 items-center gap-2">
         <button
           type="button"
@@ -311,7 +304,7 @@ export default function MenuBoard() {
                   <button
                     type="button"
                     onClick={() => go({ name: "category", slug: c.slug })}
-                    className="group relative block aspect-[4/5] w-full overflow-hidden rounded-3xl bg-cocoa text-left text-cream shadow-[0_24px_50px_-28px_rgba(28,18,14,0.6)] md:aspect-[4/3] md:rounded-[2rem]"
+                    className="group relative block aspect-[4/5] w-full overflow-hidden rounded-3xl bg-cocoa text-left text-cream shadow-[0_10px_20px_-14px_rgba(28,18,14,0.5)] md:aspect-[4/3] md:rounded-[2rem]"
                   >
                     <Image
                       src={c.cover}
@@ -320,14 +313,14 @@ export default function MenuBoard() {
                       priority={i < 2}
                       sizes="(min-width:1024px) 33vw, 50vw"
                       className="object-cover transition duration-700 group-hover:scale-105 group-active:scale-105"
-                      style={{ viewTransitionName: `cat-${c.slug}` }}
+                     
                     />
                     <span className="absolute inset-0 bg-gradient-to-t from-cocoa/90 via-cocoa/20 to-transparent" />
                     <span className="absolute right-3 top-3 grid size-9 place-items-center rounded-full bg-cream/95 text-ink shadow transition group-hover:bg-gold md:right-5 md:top-5 md:size-11">
                       <ArrowIcon width={16} height={16} />
                     </span>
                     <span className="absolute inset-x-3.5 bottom-3.5 md:inset-x-5 md:bottom-5">
-                      <span className="block font-display text-[1.6rem] leading-[1.05] md:text-4xl" style={{ viewTransitionName: `cat-title-${c.slug}` }}>
+                      <span className="block font-display text-[1.6rem] leading-[1.05] md:text-4xl">
                         {c.name[lang]}
                       </span>
                       <span className="mt-1.5 block text-xs font-semibold text-cream/75 md:text-sm">
@@ -348,10 +341,10 @@ export default function MenuBoard() {
         <>
           <TopBar title={category.name[lang]} back={{ name: "categories" }} />
           <section className="relative isolate h-[34svh] min-h-60 overflow-hidden bg-cocoa text-cream md:h-[42svh]">
-            <Image src={category.cover} alt="" fill priority sizes="100vw" className="-z-10 object-cover" style={{ viewTransitionName: `cat-${category.slug}` }} />
+            <Image src={category.cover} alt="" fill priority sizes="100vw" className="-z-10 object-cover" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-cocoa/90 via-cocoa/25 to-transparent" />
             <div className="container-x flex h-full flex-col justify-end pb-6">
-              <h1 className="font-display text-5xl leading-none md:text-7xl" style={{ viewTransitionName: `cat-title-${category.slug}` }}>
+              <h1 className="font-display text-5xl leading-none md:text-7xl">
                 {category.name[lang]}
               </h1>
               <p className="mt-2 text-sm font-semibold text-cream/75">
@@ -445,25 +438,36 @@ export default function MenuBoard() {
         onClose={() => setSelected(null)}
         onClick={(e) => e.target === e.currentTarget && setSelected(null)}
         className="menu-sheet bg-cream p-0 text-ink shadow-2xl backdrop:bg-cocoa/70"
-        style={drag ? { transform: `translateY(${drag}px)`, transition: "none" } : undefined}
       >
         {sel && (
           <div className="grid md:grid-cols-[1.05fr_1fr]">
             <div
               className="relative aspect-[4/3] w-full bg-cream-2 md:aspect-auto md:min-h-[520px]"
+              style={{ backgroundColor: sel.tone }}
               onTouchStart={(e) => (touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY })}
               onTouchMove={(e) => {
                 if (!touch.current) return;
                 const dy = e.touches[0].clientY - touch.current.y;
                 const dx = e.touches[0].clientX - touch.current.x;
-                if (dy > 0 && Math.abs(dy) > Math.abs(dx)) setDrag(dy);
+                if (dy > 0 && Math.abs(dy) > Math.abs(dx) && dialogRef.current) {
+                  // Sürükleme React durumu yerine doğrudan stil ile: her dokunuşta yeniden çizim olmaz
+                  drag.current = dy;
+                  dialogRef.current.style.transition = "none";
+                  dialogRef.current.style.transform = `translateY(${dy}px)`;
+                }
               }}
               onTouchEnd={(e) => {
                 if (!touch.current) return;
                 const dx = e.changedTouches[0].clientX - touch.current.x;
-                if (drag > 110) setSelected(null);
-                else if (Math.abs(dx) > 50 && drag < 20) step(dx < 0 ? 1 : -1);
-                setDrag(0);
+                const dy = drag.current;
+                const d = dialogRef.current;
+                if (d) {
+                  d.style.transition = "";
+                  d.style.transform = "";
+                }
+                drag.current = 0;
+                if (dy > 110) setSelected(null);
+                else if (Math.abs(dx) > 50 && dy < 20) step(dx < 0 ? 1 : -1);
                 touch.current = null;
               }}
             >
@@ -473,8 +477,6 @@ export default function MenuBoard() {
                 alt={sel.name[lang]}
                 fill
                 sizes="(min-width:768px) 480px, 100vw"
-                placeholder={sel.blur ? "blur" : "empty"}
-                blurDataURL={sel.blur || undefined}
                 className="animate-[fade-in_0.35s_ease] object-cover"
               />
               <span aria-hidden className="absolute left-1/2 top-2.5 h-1.5 w-12 -translate-x-1/2 rounded-full bg-white/80 shadow md:hidden" />
@@ -571,17 +573,15 @@ function ProductCard({ item, lang, badge, onOpen, priority }: { item: MenuItem; 
     <button
       type="button"
       onClick={onOpen}
-      className="group flex h-full w-full flex-col overflow-hidden rounded-3xl bg-cream text-left shadow-[0_18px_40px_-28px_rgba(28,18,14,0.55)] ring-1 ring-ink/5"
+      className="group flex h-full w-full flex-col overflow-hidden rounded-3xl bg-cream text-left shadow-[0_8px_16px_-12px_rgba(28,18,14,0.45)] ring-1 ring-ink/5"
     >
-      <span className="relative block aspect-square overflow-hidden bg-cream-2">
+      <span className="relative block aspect-square overflow-hidden bg-cream-2" style={{ backgroundColor: item.tone }}>
         <Image
           src={item.image}
           alt={item.name[lang]}
           fill
           priority={priority}
           sizes="(min-width:1024px) 25vw, 50vw"
-          placeholder={item.blur ? "blur" : "empty"}
-          blurDataURL={item.blur || undefined}
           className="object-cover transition duration-700 group-hover:scale-105 group-active:scale-[1.03]"
         />
         {item.featured && (
@@ -655,11 +655,11 @@ function NextCategory({ current, lang, onPick }: { current: string; lang: Lang; 
       onClick={() => onPick(next.slug)}
       className="group relative mt-12 block aspect-[21/9] w-full overflow-hidden rounded-[2rem] bg-cocoa text-left text-cream"
     >
-      <Image src={next.cover} alt="" fill sizes="100vw" className="object-cover opacity-70 transition duration-700 group-hover:scale-105" style={{ viewTransitionName: `cat-${next.slug}` }} />
+      <Image src={next.cover} alt="" fill sizes="100vw" className="object-cover opacity-70 transition duration-700 group-hover:scale-105" />
       <span className="absolute inset-0 bg-gradient-to-r from-cocoa/90 to-transparent" />
       <span className="absolute inset-y-0 left-6 flex flex-col justify-center">
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-light">{lang === "tr" ? "Sıradaki" : "Next"}</span>
-        <span className="mt-1 flex items-center gap-3 font-display text-3xl md:text-4xl" style={{ viewTransitionName: `cat-title-${next.slug}` }}>
+        <span className="mt-1 flex items-center gap-3 font-display text-3xl md:text-4xl">
           {next.name[lang]} <ArrowIcon width={24} height={24} />
         </span>
       </span>
